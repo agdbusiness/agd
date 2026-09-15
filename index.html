@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AGD Business Services — Visas Dubaï, Espagne, Malte</title>
-<meta name="description" content="AGD accompagne la constitution de votre dossier de visa pour Dubaï, l'Espagne et Malte. Freelance, business, salarié, résidence non lucrative.">
+<title>AGD Business Services — Visas Dubaï et Malte</title>
+<meta name="description" content="AGD accompagne la constitution de votre dossier de visa pour Dubaï et Malte. Statut salarié aux Émirats, Nomad Residence Permit maltais.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -132,6 +132,10 @@ section{padding:96px 0}
 
 /* Destinations — cartes offres */
 .dest{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.dest-2{grid-template-columns:repeat(2,1fr);max-width:840px;margin:0 auto}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:14px;padding-top:13px;border-top:1px solid var(--line)}
+.price-row span{font-size:13.5px;color:var(--muted)}
+.price-row b{font-family:var(--serif);font-size:21px;font-weight:400}
 .card{
   position:relative;display:flex;flex-direction:column;overflow:hidden;
   border:1px solid var(--line);border-radius:20px;background:var(--surface);
@@ -273,7 +277,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
   .step-grid{grid-template-columns:repeat(2,1fr)}
   .trust-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr;gap:44px}
-  .dest{grid-template-columns:1fr;gap:20px}
+  .dest,.dest-2{grid-template-columns:1fr;gap:20px}
   .partner{height:58px}
   .partner-grid{gap:32px 40px}
   .jobs{padding:38px}
@@ -315,11 +319,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
         </button>
         <div class="drop-menu">
           <a href="visa-dubai.html">Dubaï<span data-fr="Freelance · Business · Salarié" data-en="Freelance · Business · Employment">Freelance · Business · Salarié</span></a>
-          <a href="visa-espagne.html">Espagne<span data-fr="Tourisme · Freelance · Non lucratif" data-en="Tourist · Freelance · Non-lucrative">Tourisme · Freelance · Non lucratif</span></a>
           <a href="visa-malte.html">Malte<span data-fr="Freelance · Nomad Residence" data-en="Freelance · Nomad Residence">Freelance · Nomad Residence</span></a>
         </div>
       </div>
-      <a href="emplois.html" data-fr="Offres d'emploi" data-en="Job offers">Offres d'emploi</a>
       <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
     </nav>
 
@@ -341,7 +343,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
   <div class="hero-bg"></div>
   <div class="wrap hero-inner">
     <h1 id="typed"><span class="t1"></span><span class="grad t2"></span><span class="cursor" id="cursor"></span></h1>
-    <p class="lede reveal" data-fr="AGD Business Services accompagne les personnes qui s'installent à Dubaï, en Espagne ou à Malte. On analyse votre situation, on choisit le bon statut, et on prépare chaque pièce du dossier avec vous." data-en="AGD Business Services guides people relocating to Dubai, Spain or Malta. We assess your situation, pick the right status, and prepare every document with you.">AGD Business Services accompagne les personnes qui s'installent à Dubaï, en Espagne ou à Malte. On analyse votre situation, on choisit le bon statut, et on prépare chaque pièce du dossier avec vous.</p>
+    <p class="lede reveal" data-fr="AGD Business Services accompagne les personnes qui s'installent à Dubaï ou à Malte. On analyse votre situation, on choisit le bon statut, et on prépare chaque pièce du dossier avec vous." data-en="AGD Business Services guides people relocating to Dubai or Malta. We assess your situation, pick the right status, and prepare every document with you.">AGD Business Services accompagne les personnes qui s'installent à Dubaï ou à Malte. On analyse votre situation, on choisit le bon statut, et on prépare chaque pièce du dossier avec vous.</p>
     <div class="cta-row reveal">
       <a href="#destinations" class="btn btn-primary" data-fr="Voir les visas" data-en="See the visas">Voir les visas</a>
       <a href="#contact" class="btn btn-ghost" data-fr="Parler à un conseiller" data-en="Talk to an advisor">Parler à un conseiller</a>
@@ -353,11 +355,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
 <section id="destinations">
   <div class="wrap">
     <div class="sec-head">
-      <h2 data-fr="Trois destinations, sept statuts" data-en="Three destinations, seven statuses">Trois destinations, sept statuts</h2>
-      <p data-fr="Chaque pays a ses propres règles de résidence. On vous oriente vers celui qui correspond réellement à votre activité et à vos revenus." data-en="Each country has its own residency rules. We point you to the one that actually fits your activity and income.">Chaque pays a ses propres règles de résidence. On vous oriente vers celui qui correspond réellement à votre activité et à vos revenus.</p>
+      <h2 data-fr="Deux destinations, deux stratégies" data-en="Two destinations, two strategies">Deux destinations, deux stratégies</h2>
+      <p data-fr="Dubaï pour une résidence rapide et sans impôt sur le revenu, Malte pour une carte européenne et la libre circulation dans Schengen." data-en="Dubai for fast, income-tax-free residency; Malta for an EU card and free movement across Schengen.">Dubaï pour une résidence rapide et sans impôt sur le revenu, Malte pour une carte européenne et la libre circulation dans Schengen.</p>
     </div>
 
-    <div class="dest">
+    <div class="dest dest-2">
 
       <a class="card featured" href="visa-dubai.html">
         <span class="badge" data-fr="Le plus demandé" data-en="Most requested">Le plus demandé</span>
@@ -365,75 +367,56 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
         <div class="card-body">
           <div class="dest-name">Dubaï<em data-fr="Émirats arabes unis" data-en="United Arab Emirates">Émirats arabes unis</em></div>
           <div class="tags">
-            <span class="tag">Freelance</span>
-            <span class="tag">Business</span>
-            <span class="tag" data-fr="Salarié" data-en="Employment">Salarié</span>
+            <span class="tag" data-fr="Statut salarié" data-en="Employment status">Statut salarié</span>
+            <span class="tag" data-fr="Création de société possible" data-en="Company setup available">Création de société possible</span>
           </div>
           <div class="price-box">
             <div class="price"><b>5 000 €</b><span data-fr="d'honoraires" data-en="in fees">d'honoraires</span></div>
-            <div class="price-note" data-fr="Frais officiels des Émirats en sus, facturés au réel. Paiement en deux fois." data-en="UAE government fees charged separately at cost. Payable in two instalments.">Frais officiels des Émirats en sus, facturés au réel. Paiement en deux fois.</div>
+            <div class="price-row">
+              <span data-fr="Délai moyen" data-en="Average timeline">Délai moyen</span>
+              <b data-fr="15 jours" data-en="15 days">15 jours</b>
+            </div>
+            <div class="price-note" data-fr="Frais officiels des Émirats en sus. La création d'une société, si vous la souhaitez, fait l'objet d'un devis distinct." data-en="UAE government fees charged separately. Company setup, if you want it, is quoted separately.">Frais officiels des Émirats en sus. La création d'une société, si vous la souhaitez, fait l'objet d'un devis distinct.</div>
           </div>
           <div class="feat-title" data-fr="Ce que comprend l'accompagnement" data-en="What the service covers">Ce que comprend l'accompagnement</div>
           <ul class="feats">
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Bilan de situation et choix du statut" data-en="Situation review and status selection">Bilan de situation et choix du statut</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Création de la structure ou du sponsor" data-en="Company or sponsor setup">Création de la structure ou du sponsor</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Entry permit et changement de statut" data-en="Entry permit and status change">Entry permit et changement de statut</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Emirates ID et test médical" data-en="Emirates ID and medical test">Emirates ID et test médical</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Ouverture de compte bancaire" data-en="Bank account opening">Ouverture de compte bancaire</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Suivi WhatsApp pendant toute la procédure" data-en="WhatsApp follow-up throughout">Suivi WhatsApp pendant toute la procédure</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Recherche et validation du sponsor employeur" data-en="Sponsor employer search and vetting">Recherche et validation du sponsor employeur</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Permis de travail MOHRE et permis d'entrée" data-en="MOHRE work permit and entry permit">Permis de travail MOHRE et permis d'entrée</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Changement de statut si vous êtes déjà sur place" data-en="In-country status change if already in the UAE">Changement de statut si vous êtes déjà sur place</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Test médical et biométrie Emirates ID" data-en="Medical test and Emirates ID biometrics">Test médical et biométrie Emirates ID</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Contrat de travail et assurance obligatoire" data-en="Employment contract and mandatory insurance">Contrat de travail et assurance obligatoire</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Ouverture de compte bancaire aux Émirats" data-en="UAE bank account opening">Ouverture de compte bancaire aux Émirats</span></li>
           </ul>
-          <span class="card-cta"><span data-fr="Découvrir les visas" data-en="Explore the visas">Découvrir les visas</span><svg width="16" height="11" viewBox="0 0 17 11" fill="none"><path d="M1 5.5h14M11 1l4.5 4.5L11 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        </div>
-      </a>
-
-      <a class="card" href="visa-espagne.html">
-        <div class="card-media card-espagne"><span class="flag"><svg viewBox="0 0 60 40"><rect width="60" height="40" fill="#AA151B"/><rect y="10" width="60" height="20" fill="#F1BF00"/></svg></span></div>
-        <div class="card-body">
-          <div class="dest-name" data-fr="Espagne&lt;em&gt;Union européenne · Schengen&lt;/em&gt;" data-en="Spain&lt;em&gt;European Union · Schengen&lt;/em&gt;">Espagne<em>Union européenne · Schengen</em></div>
-          <div class="tags">
-            <span class="tag" data-fr="Tourisme" data-en="Tourist">Tourisme</span>
-            <span class="tag">Freelance</span>
-            <span class="tag" data-fr="Non lucratif" data-en="Non-lucrative">Non lucratif</span>
-          </div>
-          <div class="price-box">
-            <div class="price"><b>5 000 €</b><span data-fr="d'honoraires" data-en="in fees">d'honoraires</span></div>
-            <div class="price-note" data-fr="Frais consulaires et traductions en sus, facturés au réel. Paiement en deux fois." data-en="Consular fees and translations charged separately at cost. Payable in two instalments.">Frais consulaires et traductions en sus, facturés au réel. Paiement en deux fois.</div>
-          </div>
-          <div class="feat-title" data-fr="Ce que comprend l'accompagnement" data-en="What the service covers">Ce que comprend l'accompagnement</div>
-          <ul class="feats">
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Bilan de situation et choix du visa" data-en="Situation review and visa selection">Bilan de situation et choix du visa</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Dossier consulaire complet" data-en="Complete consular file">Dossier consulaire complet</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Traductions assermentées et apostilles" data-en="Sworn translations and apostilles">Traductions assermentées et apostilles</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Justificatifs de revenus et assurance" data-en="Income proof and insurance">Justificatifs de revenus et assurance</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Prise de rendez-vous au consulat" data-en="Consulate appointment booking">Prise de rendez-vous au consulat</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Accompagnement à l'arrivée (NIE, empadronamiento)" data-en="Arrival support (NIE, empadronamiento)">Accompagnement à l'arrivée (NIE, empadronamiento)</span></li>
-          </ul>
-          <span class="card-cta"><span data-fr="Découvrir les visas" data-en="Explore the visas">Découvrir les visas</span><svg width="16" height="11" viewBox="0 0 17 11" fill="none"><path d="M1 5.5h14M11 1l4.5 4.5L11 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="card-cta"><span data-fr="Voir le détail du visa" data-en="See the full details">Voir le détail du visa</span><svg width="16" height="11" viewBox="0 0 17 11" fill="none"><path d="M1 5.5h14M11 1l4.5 4.5L11 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </a>
 
       <a class="card" href="visa-malte.html">
         <div class="card-media card-malte"><span class="flag"><svg viewBox="0 0 60 40"><rect width="30" height="40" fill="#fff"/><rect x="30" width="30" height="40" fill="#CF142B"/><rect x="4" y="6" width="13" height="13" fill="none" stroke="#B9B9B9" stroke-width="1"/><path d="M9.2 8.5h3v2.6h2.6v3h-2.6v2.6h-3v-2.6H6.6v-3h2.6z" fill="#C1B49A"/></svg></span></div>
         <div class="card-body">
-          <div class="dest-name">Malte<em data-fr="Union européenne · Schengen" data-en="European Union · Schengen">Union européenne · Schengen</em></div>
+          <div class="dest-name">Malte<em data-fr="Union européenne · Espace Schengen" data-en="European Union · Schengen area">Union européenne · Espace Schengen</em></div>
           <div class="tags">
             <span class="tag">Freelance</span>
             <span class="tag">Nomad Residence Permit</span>
           </div>
           <div class="price-box">
-            <div class="price"><b>5 000 €</b><span data-fr="d'honoraires" data-en="in fees">d'honoraires</span></div>
-            <div class="price-note" data-fr="Frais de dossier maltais en sus, facturés au réel. Paiement en deux fois." data-en="Maltese application fees charged separately at cost. Payable in two instalments.">Frais de dossier maltais en sus, facturés au réel. Paiement en deux fois.</div>
+            <div class="price"><b>6 000 €</b><span data-fr="d'honoraires" data-en="in fees">d'honoraires</span></div>
+            <div class="price-row">
+              <span data-fr="Délai moyen" data-en="Average timeline">Délai moyen</span>
+              <b data-fr="1 mois" data-en="1 month">1 mois</b>
+            </div>
+            <div class="price-note" data-fr="Frais de dossier maltais, traductions et assurance santé en sus, facturés au réel." data-en="Maltese application fees, translations and health insurance charged separately at cost.">Frais de dossier maltais, traductions et assurance santé en sus, facturés au réel.</div>
           </div>
           <div class="feat-title" data-fr="Ce que comprend l'accompagnement" data-en="What the service covers">Ce que comprend l'accompagnement</div>
           <ul class="feats">
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Bilan d'éligibilité au Nomad Residence Permit" data-en="Nomad Residence Permit eligibility check">Bilan d'éligibilité au Nomad Residence Permit</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Constitution et dépôt du dossier" data-en="File preparation and submission">Constitution et dépôt du dossier</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Contrats clients et justificatifs de revenus" data-en="Client contracts and income proof">Contrats clients et justificatifs de revenus</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Assurance santé et attestation de logement" data-en="Health insurance and housing proof">Assurance santé et attestation de logement</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Suivi jusqu'à la carte de résidence" data-en="Follow-up until the residence card">Suivi jusqu'à la carte de résidence</span></li>
-            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Accompagnement bancaire sur place" data-en="Local banking support">Accompagnement bancaire sur place</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Vérification d'éligibilité au Nomad Residence Permit" data-en="Nomad Residence Permit eligibility check">Vérification d'éligibilité au Nomad Residence Permit</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Dossier complet auprès de Residency Malta Agency" data-en="Full file with the Residency Malta Agency">Dossier complet auprès de Residency Malta Agency</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Contrats clients et justificatifs de revenus" data-en="Client contracts and income evidence">Contrats clients et justificatifs de revenus</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Assurance santé conforme et logement" data-en="Compliant health insurance and accommodation">Assurance santé conforme et logement</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Suivi jusqu'à la délivrance du permis" data-en="Follow-up until the permit is issued">Suivi jusqu'à la délivrance du permis</span></li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Libre circulation dans l'espace Schengen" data-en="Free movement across the Schengen area">Libre circulation dans l'espace Schengen</span></li>
           </ul>
-          <span class="card-cta"><span data-fr="Découvrir les visas" data-en="Explore the visas">Découvrir les visas</span><svg width="16" height="11" viewBox="0 0 17 11" fill="none"><path d="M1 5.5h14M11 1l4.5 4.5L11 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="card-cta"><span data-fr="Voir le détail du visa" data-en="See the full details">Voir le détail du visa</span><svg width="16" height="11" viewBox="0 0 17 11" fill="none"><path d="M1 5.5h14M11 1l4.5 4.5L11 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         </div>
       </a>
 
@@ -496,18 +479,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
   </div>
 </section>
 
-<!-- EMPLOIS -->
-<section>
-  <div class="wrap">
-    <div class="jobs">
-      <div>
-        <h2 data-fr="Des offres d'emploi à l'étranger, mises à jour chaque semaine" data-en="Job openings abroad, updated every week">Des offres d'emploi à l'étranger, mises à jour chaque semaine</h2>
-        <p data-fr="Hôtellerie, construction, logistique, tech. Les postes que nous relayons précisent le pays, le salaire et le type de contrat." data-en="Hospitality, construction, logistics, tech. Every listing states the country, salary and contract type.">Hôtellerie, construction, logistique, tech. Les postes que nous relayons précisent le pays, le salaire et le type de contrat.</p>
-      </div>
-      <a href="emplois.html" class="btn btn-primary" data-fr="Voir les offres" data-en="Browse openings">Voir les offres</a>
-    </div>
-  </div>
-</section>
 
 <!-- CONTACT -->
 <section id="contact">
@@ -533,12 +504,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
         <div>
           <label for="f-visa" data-fr="Visa souhaité" data-en="Visa of interest">Visa souhaité</label>
           <select id="f-visa" name="visa">
-            <option>Dubaï — Freelance</option>
-            <option>Dubaï — Business</option>
             <option data-fr="Dubaï — Salarié" data-en="Dubai — Employment">Dubaï — Salarié</option>
-            <option data-fr="Espagne — Tourisme" data-en="Spain — Tourist">Espagne — Tourisme</option>
-            <option data-fr="Espagne — Freelance" data-en="Spain — Freelance">Espagne — Freelance</option>
-            <option data-fr="Espagne — Non lucratif" data-en="Spain — Non-lucrative">Espagne — Non lucratif</option>
             <option data-fr="Malte — Freelance" data-en="Malta — Freelance">Malte — Freelance</option>
             <option data-fr="Je ne sais pas encore" data-en="Not sure yet">Je ne sais pas encore</option>
           </select>
@@ -609,7 +575,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
           <span class="faq-t" data-fr="Puis-je payer en plusieurs fois ?" data-en="Can I pay in instalments?">Puis-je payer en plusieurs fois ?</span>
           <svg class="faq-chev" width="13" height="8" viewBox="0 0 11 7" fill="none"><path d="M1 1l4.5 4.5L10 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
         </button>
-        <div class="faq-a"><div><p data-fr="Oui. Le paiement est échelonné : une part au lancement de la procédure, le solde plus tard. Sur les dossiers de permis de travail européens, 75 % du montant n&#x27;est dû qu&#x27;après réception d&#x27;un accord favorable. Vous ne payez donc l&#x27;essentiel qu&#x27;une fois le résultat obtenu." data-en="Yes. Payment is staged: a share when the process starts, the balance later. On European work permit files, 75% is due only after a positive decision. So you pay most of it only once you have the result.">Oui. Le paiement est échelonné : une part au lancement de la procédure, le solde plus tard. Sur les dossiers de permis de travail européens, 75 % du montant n'est dû qu'après réception d'un accord favorable. Vous ne payez donc l'essentiel qu'une fois le résultat obtenu.</p></div></div>
+        <div class="faq-a"><div><p data-fr="Oui. Le règlement se fait en deux temps : 50 % du montant à l&amp;#39;avance, au lancement de la procédure, et le solde de 50 % à la délivrance du visa. Vous ne réglez donc la seconde moitié qu&amp;#39;une fois le résultat obtenu." data-en="Yes. Payment is made in two stages: 50% upfront when the process starts, and the remaining 50% when the visa is issued. You only pay the second half once you have the result.">Oui. Le règlement se fait en deux temps : 50 % du montant à l\'avance, au lancement de la procédure, et le solde de 50 % à la délivrance du visa. Vous ne réglez donc la seconde moitié qu\'une fois le résultat obtenu.</p></div></div>
       </div>
 
       <div class="faq-item">
@@ -657,14 +623,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
         <div class="faq-a"><div><p data-fr="Un interlocuteur unique suit votre dossier du début à la fin, joignable sur WhatsApp aux horaires de bureau. Vous êtes prévenu à chaque étape franchie, et vous pouvez demander un point d&#x27;avancement à tout moment sans attendre notre appel." data-en="A single contact handles your file from start to finish, reachable on WhatsApp during office hours. You&#x27;re notified at every completed step, and you can ask for an update at any time without waiting for us to call.">Un interlocuteur unique suit votre dossier du début à la fin, joignable sur WhatsApp aux horaires de bureau. Vous êtes prévenu à chaque étape franchie, et vous pouvez demander un point d'avancement à tout moment sans attendre notre appel.</p></div></div>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false">
-          <span class="faq-n">Q10</span>
-          <span class="faq-t" data-fr="Pourquoi une société établie à Dubaï ?" data-en="Why a company based in Dubai?">Pourquoi une société établie à Dubaï ?</span>
-          <svg class="faq-chev" width="13" height="8" viewBox="0 0 11 7" fill="none"><path d="M1 1l4.5 4.5L10 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        </button>
-        <div class="faq-a"><div><p data-fr="Parce que c&#x27;est là que se trouve notre équipe et l&#x27;essentiel de notre activité. Cela nous donne un accès direct aux administrations et aux zones franches émiriennes, et un décalage horaire commode avec l&#x27;Europe. Nos coordonnées complètes et notre immatriculation figurent dans les mentions légales." data-en="Because that&#x27;s where our team and most of our activity are. It gives us direct access to Emirati authorities and free zones, and a convenient time difference with Europe. Our full details and registration are in the legal notice.">Parce que c'est là que se trouve notre équipe et l'essentiel de notre activité. Cela nous donne un accès direct aux administrations et aux zones franches émiriennes, et un décalage horaire commode avec l'Europe. Nos coordonnées complètes et notre immatriculation figurent dans les mentions légales.</p></div></div>
-      </div>
     </div>
   </div>
 </section>
@@ -691,10 +649,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
       <a href="index.html" class="logo"><img src="logo-agd.png" alt="AGD Business Services"></a>
       <div class="foot-links">
         <a href="visa-dubai.html">Dubaï</a>
-        <a href="visa-espagne.html" data-fr="Espagne" data-en="Spain">Espagne</a>
         <a href="visa-malte.html">Malte</a>
-        <a href="emplois.html" data-fr="Offres d'emploi" data-en="Job offers">Offres d'emploi</a>
-        <a href="mentions-legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
+          <a href="mentions-legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
         <a href="cgv.html" data-fr="CGV" data-en="Terms">CGV</a>
         <a href="confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a>
       </div>
