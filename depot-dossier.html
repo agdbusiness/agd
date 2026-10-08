@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Visa Malte — Nomad Residence Permit pour freelances | AGD Business Services</title>
-<meta name="description" content="Nomad Residence Permit maltais pour indépendants à distance : résidence dans l'UE et l'espace Schengen, 1 an renouvelable. Éligibilité vérifiée gratuitement.">
+<title>Déposer mon dossier | AGD Business Services</title>
+<meta name="description" content="Déposez votre dossier de visa Dubaï ou Malte : informations à remplir, liste des pièces à fournir, transmission sécurisée par WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -183,6 +183,40 @@ section{padding:96px 0}
 }
 .card:hover .card-cta{background:linear-gradient(135deg,var(--violet),var(--magenta));border-color:transparent;color:#fff}
 .card.featured .card-cta{background:linear-gradient(135deg,var(--violet),var(--magenta));border-color:transparent;color:#fff}
+
+/* Dépôt de dossier */
+.dest-switch{display:inline-flex;gap:6px;padding:6px;border:1px solid var(--line);border-radius:999px;margin-bottom:34px}
+.ds{background:none;border:0;color:var(--muted);font:inherit;font-size:15px;padding:10px 26px;border-radius:999px;cursor:pointer;transition:.18s}
+.ds.on{background:linear-gradient(135deg,var(--violet),var(--magenta));color:#fff}
+.form-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:start}
+.panel{border:1px solid var(--line);border-radius:20px;padding:34px;background:var(--surface)}
+.panel-t{font-family:var(--serif);font-weight:400;font-size:28px;margin-bottom:10px}
+.panel-s{color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:26px}
+.grp{font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--violet-soft);margin:30px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.grp:first-of-type{margin-top:0}
+.fld{margin-bottom:16px}
+.fld label{display:block;font-size:14px;color:var(--muted);margin-bottom:7px}
+.req{color:#F2545B;margin-left:4px;font-weight:600}
+.fld input,.fld select,.fld textarea{
+  width:100%;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;
+  padding:13px 15px;color:var(--text);font:inherit;font-size:15.5px;
+}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--violet);outline:none}
+.fld input::placeholder,.fld textarea::placeholder{color:#5E5A70}
+.fld input.err,.fld select.err{border-color:#F2545B}
+.consent{display:flex;gap:12px;align-items:flex-start;margin-top:26px;font-size:14px;color:var(--muted);line-height:1.55;cursor:pointer}
+.consent input{margin-top:3px;accent-color:var(--violet);width:18px;height:18px;flex:none}
+.consent a{color:var(--violet-soft);text-decoration:underline}
+.hint{font-size:13.5px;margin-top:14px;min-height:20px}
+.hint.bad{color:#F2545B}
+.doclist{list-style:none;display:grid;gap:4px}
+.doclist li{border-bottom:1px solid var(--line);padding:14px 0}
+.doclist li:last-child{border-bottom:0}
+.doclist label{display:flex;gap:13px;align-items:flex-start;cursor:pointer;font-size:16px;font-weight:500}
+.doclist input{margin-top:3px;accent-color:var(--violet);width:18px;height:18px;flex:none}
+.doclist em{display:block;font-style:normal;font-size:13.5px;color:var(--muted);margin:6px 0 0 31px;line-height:1.5}
+@media(max-width:980px){.form-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.panel{padding:24px 20px}}
 
 /* Pages visa */
 .page-head{padding:78px 0 44px;position:relative}
@@ -371,7 +405,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
     </nav>
 
     <div style="display:flex;align-items:center;gap:14px">
-      <div class="lang">
+      <div class="lang" style="display:none">
         <button type="button" class="on" data-lang="fr">FR</button>
         <button type="button" data-lang="en">EN</button>
       </div>
@@ -384,130 +418,160 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
 
 <section class="page-head">
   <div class="wrap">
-    <span class="flag"><svg viewBox="0 0 60 40"><rect width="30" height="40" fill="#fff"/><rect x="30" width="30" height="40" fill="#CF142B"/><rect x="4" y="6" width="13" height="13" fill="none" stroke="#B9B9B9" stroke-width="1"/><path d="M9.2 8.5h3v2.6h2.6v3h-2.6v2.6h-3v-2.6H6.6v-3h2.6z" fill="#C1B49A"/></svg></span>
-    <h1 data-fr="Visa Malte" data-en="Malta visa">Visa Malte</h1>
-    <p class="sub" data-fr="Le Nomad Residence Permit : une résidence européenne pour les indépendants à distance, avec la libre circulation dans l&#x27;espace Schengen." data-en="The Nomad Residence Permit: European residency for remote freelancers, with free movement across the Schengen area.">Le Nomad Residence Permit : une résidence européenne pour les indépendants à distance, avec la libre circulation dans l'espace Schengen.</p>
-    <div class="keyfacts">
-      <div class="keyfact"><span data-fr="Honoraires" data-en="Our fee">Honoraires</span><b data-fr="6 000 €" data-en="€6,000">6 000 €</b></div>
-      <div class="keyfact"><span data-fr="Délai moyen" data-en="Average timeline">Délai moyen</span><b data-fr="1 mois" data-en="1 month">1 mois</b></div>
-      <div class="keyfact"><span data-fr="Éligibilité" data-en="Eligibility">Éligibilité</span><b data-fr="Étudiée au cas par cas" data-en="Case by case">Étudiée au cas par cas</b></div>
-      <div class="keyfact"><span data-fr="Validité" data-en="Validity">Validité</span><b data-fr="1 an, ×4" data-en="1 year, ×4">1 an, ×4</b></div>
-    </div>
+    <h1 data-fr="Déposer mon dossier" data-en="Submit my application">Déposer mon dossier</h1>
+    <p class="sub" data-fr="Remplissez vos informations, rassemblez les pièces de la liste, et envoyez-nous le tout. Nous revenons vers vous sous 24 h ouvrées avec un avis d&#39;éligibilité." data-en="Fill in your details, gather the documents listed, and send us everything. We reply within 24 working hours with an eligibility assessment.">Remplissez vos informations, rassemblez les pièces de la liste, et envoyez-nous le tout. Nous revenons vers vous sous 24 h ouvrées avec un avis d'éligibilité.</p>
   </div>
 </section>
 
-<section>
-  <div class="wrap two-col">
-    <div class="prose">
-      <h2 data-fr="Le Nomad Residence Permit maltais" data-en="The Maltese Nomad Residence Permit">Le Nomad Residence Permit maltais</h2>
-      <p data-fr="Malte délivre depuis 2021 un permis de résidence destiné aux travailleurs à distance non européens. Il permet de vivre sur l&#39;île tout en travaillant pour des employeurs ou des clients situés hors de Malte." data-en="Since 2021 Malta has issued a residence permit for non-EU remote workers. It lets you live on the island while working for employers or clients based outside Malta.">Malte délivre depuis 2021 un permis de résidence destiné aux travailleurs à distance non européens. Il permet de vivre sur l'île tout en travaillant pour des employeurs ou des clients situés hors de Malte.</p>
-      <p data-fr="Son intérêt principal tient à la géographie administrative : Malte est membre de l&#39;Union européenne et de l&#39;espace Schengen. Le permis est délivré pour un an et renouvelable trois fois, soit quatre années au total. L&#39;anglais y est langue officielle, ce qui simplifie considérablement l&#39;installation." data-en="Its main appeal is administrative geography: Malta is a member of both the European Union and the Schengen area. The permit is issued for one year and renewable three times, up to four years in total. English is an official language, which makes settling in far simpler.">Son intérêt principal tient à la géographie administrative : Malte est membre de l'Union européenne et de l'espace Schengen. Le permis est délivré pour un an et renouvelable trois fois, soit quatre années au total. L'anglais y est langue officielle, ce qui simplifie considérablement l'installation.</p>
-
-      <h3 data-fr="Les conditions d&#39;éligibilité" data-en="Eligibility conditions">Les conditions d'éligibilité</h3>
-      <p data-fr="L&amp;#39;agence maltaise apprécie chaque dossier individuellement. Un niveau de revenu minimum est exigé et vérifié sur pièces : il évolue régulièrement et dépend aussi de votre composition familiale. Nous contrôlons ce point gratuitement, avant tout engagement de votre part, et nous vous disons immédiatement si le dossier tient." data-en="The Maltese authority reviews each application individually. A minimum income level is required and verified from documents: it changes regularly and depends on your family situation too. We check this free of charge, before you commit to anything, and tell you straight away whether the application holds up.">L'autorité maltaise apprécie chaque dossier individuellement. Un niveau de revenu minimum est exigé et vérifié sur pièces : il évolue régulièrement et dépend aussi de votre composition familiale. Nous contrôlons ce point gratuitement, avant tout engagement de votre part, et nous vous disons immédiatement si le dossier tient.</p>
-      <ul>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Des revenus réguliers et suffisants, appréciés par l&amp;#39;autorité maltaise" data-en="Regular and sufficient income, assessed by the Maltese authority">Des revenus réguliers et suffisants, appréciés par l'autorité maltaise</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Être ressortissant d&amp;#39;un pays hors Union européenne" data-en="Be a national of a non-EU country">Être ressortissant d&#39;un pays hors Union européenne</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Travailler à distance pour une entité établie hors de Malte" data-en="Work remotely for an entity established outside Malta">Travailler à distance pour une entité établie hors de Malte</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Être salarié à distance, associé d&amp;#39;une société étrangère ou indépendant" data-en="Be a remote employee, a partner in a foreign company, or a freelancer">Être salarié à distance, associé d&#39;une société étrangère ou indépendant</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Disposer d&amp;#39;une assurance santé couvrant au moins 100 000 €" data-en="Hold health insurance covering at least €100,000">Disposer d&#39;une assurance santé couvrant au moins 100 000 €</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Justifier d&amp;#39;un logement à Malte et d&amp;#39;un casier judiciaire vierge" data-en="Provide proof of accommodation in Malta and a clean criminal record">Justifier d&#39;un logement à Malte et d&#39;un casier judiciaire vierge</span></li>
-      </ul>
-
-      <h3 data-fr="Deux points que l&#39;on vous cachera ailleurs" data-en="Two points others will not tell you">Deux points que l'on vous cachera ailleurs</h3>
-      <p data-fr="Premièrement, ce permis n&#39;ouvre droit à aucun régime fiscal de faveur sur les revenus d&#39;activité : en devenant résident fiscal maltais, vous relevez du barème ordinaire, qui monte jusqu&#39;à 35 %. Toute agence qui vous vend ce visa comme une optimisation fiscale vous induit en erreur." data-en="First, this permit grants no preferential tax regime on employment income: as a Maltese tax resident you fall under the ordinary scale, which rises to 35%. Any agency selling this visa as tax optimisation is misleading you.">Premièrement, ce permis n'ouvre droit à aucun régime fiscal de faveur sur les revenus d'activité : en devenant résident fiscal maltais, vous relevez du barème ordinaire, qui monte jusqu'à 35 %. Toute agence qui vous vend ce visa comme une optimisation fiscale vous induit en erreur.</p>
-      <p data-fr="Deuxièmement, il ne mène ni à la résidence permanente ni à la nationalité maltaise. C&#39;est un séjour temporaire de quatre ans au maximum. Si votre objectif est une installation définitive en Europe, ce n&#39;est pas le bon véhicule, et nous vous le dirons." data-en="Second, it leads neither to permanent residence nor to Maltese citizenship. It is a temporary stay of four years at most. If your goal is settling in Europe for good, this is not the right vehicle, and we will say so.">Deuxièmement, il ne mène ni à la résidence permanente ni à la nationalité maltaise. C'est un séjour temporaire de quatre ans au maximum. Si votre objectif est une installation définitive en Europe, ce n'est pas le bon véhicule, et nous vous le dirons.</p>
-
-      <h3 data-fr="Les documents à prévoir" data-en="Documents to prepare">Les documents à prévoir</h3>
-      <ul>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Passeport valide et photos d&amp;#39;identité récentes" data-en="Valid passport and recent passport photos">Passeport valide et photos d&#39;identité récentes</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Contrat de travail ou contrats clients prouvant le travail à distance" data-en="Employment contract or client contracts proving remote work">Contrat de travail ou contrats clients prouvant le travail à distance</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Relevés bancaires et bulletins couvrant les douze derniers mois" data-en="Bank statements and payslips covering the past twelve months">Relevés bancaires et bulletins couvrant les douze derniers mois</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Extrait de casier judiciaire apostillé" data-en="Apostilled criminal record extract">Extrait de casier judiciaire apostillé</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Police d&amp;#39;assurance santé conforme au tableau de garanties exigé" data-en="Health insurance policy matching the required table of benefits">Police d&#39;assurance santé conforme au tableau de garanties exigé</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5l-7 7L3 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-fr="Réservation de logement à Malte pour la période demandée" data-en="Accommodation booking in Malta for the required period">Réservation de logement à Malte pour la période demandée</span></li>
-      </ul>
-    </div>
-    <aside>
-      <div class="sticky">
-        <div class="price"><b>6 000 €</b><span data-fr="d'honoraires" data-en="in fees">d'honoraires</span></div>
-        <div style="margin-top:22px">
-          <div class="line"><span data-fr="Délai moyen" data-en="Average timeline">Délai moyen</span><b data-fr="1 mois" data-en="1 month">1 mois</b></div>
-          <div class="line"><span data-fr="Éligibilité" data-en="Eligibility">Éligibilité</span><b data-fr="Vérifiée gratuitement" data-en="Checked free of charge">Vérifiée gratuitement</b></div>
-          <div class="line"><span data-fr="Validité" data-en="Validity">Validité</span><b data-fr="1 an, 3 renouvellements" data-en="1 year, 3 renewals">1 an, 3 renouvellements</b></div>
-          <div class="line"><span data-fr="Zone" data-en="Zone">Zone</span><b data-fr="UE et Schengen" data-en="EU and Schengen">UE et Schengen</b></div>
-        </div>
-        <a href="https://wa.me/971526020915" target="_blank" rel="noopener" class="btn btn-primary" data-fr="Lancer mon dossier" data-en="Start my application">Lancer mon dossier</a>
-        <p class="fine" data-fr="Frais de dossier, traductions, apostilles et assurance santé non compris, facturés au réel." data-en="Application fees, translations, apostilles and health insurance not included, charged at cost.">Frais de dossier, traductions, apostilles et assurance santé non compris, facturés au réel.</p>
-      </div>
-    </aside>
-  </div>
-</section>
-
-<section class="steps">
+<section style="padding-top:12px">
   <div class="wrap">
-    <div class="sec-head">
-      <h2 data-fr="Le déroulé, étape par étape" data-en="The process, step by step">Le déroulé, étape par étape</h2>
-    </div>
-    <div class="timeline">
-      <div class="tl">
-        <div class="tl-n">01</div>
-        <div>
-          <h3 data-fr="Test d&#x27;éligibilité" data-en="Eligibility check">Test d'éligibilité</h3>
-          <p data-fr="Nous vérifions votre nationalité, la nature de vos revenus et leur régularité sur douze mois. C&#x27;est là que se jouent la plupart des refus." data-en="We check your nationality, the nature of your income and its regularity over twelve months. This is where most refusals are decided.">Nous vérifions votre nationalité, la nature de vos revenus et leur régularité sur douze mois. Cette vérification est gratuite : c'est là que se jouent la plupart des refus.</p>
-        </div>
-      </div>
-      <div class="tl">
-        <div class="tl-n">02</div>
-        <div>
-          <h3 data-fr="Constitution du dossier" data-en="Building the file">Constitution du dossier</h3>
-          <p data-fr="Rassemblement des contrats, relevés, casier judiciaire et assurance. Chaque pièce est vérifiée au format exigé par l&#x27;agence maltaise." data-en="Gathering contracts, statements, criminal record and insurance. Every document is checked against the format the Maltese authority requires.">Rassemblement des contrats, relevés, casier judiciaire et assurance. Chaque pièce est vérifiée au format exigé par l'autorité maltaise.</p>
-        </div>
-      </div>
-      <div class="tl">
-        <div class="tl-n">03</div>
-        <div>
-          <h3 data-fr="Dépôt du dossier" data-en="Filing the application">Dépôt du dossier</h3>
-          <p data-fr="Le dossier est soumis à l&#x27;agence. Elle procède à un contrôle d&#x27;antécédents et peut demander des pièces complémentaires." data-en="The file is submitted to the competent authority. It runs a background check and may request further documents.">Le dossier est soumis à l'autorité compétente. Elle procède à un contrôle d'antécédents et peut demander des pièces complémentaires.</p>
-        </div>
-      </div>
-      <div class="tl">
-        <div class="tl-n">04</div>
-        <div>
-          <h3 data-fr="Lettre d&#x27;approbation de principe" data-en="Letter of approval in principle">Lettre d'approbation de principe</h3>
-          <p data-fr="En cas d&#x27;accord, l&#x27;agence délivre une approbation de principe. Un délai court s&#x27;ouvre alors pour fournir les pièces finales." data-en="If approved, the authority issues an approval in principle. A short window then opens to supply the final documents.">En cas d'accord, l'autorité délivre une approbation de principe. Un délai court s'ouvre alors pour fournir les pièces finales.</p>
-        </div>
-      </div>
-      <div class="tl">
-        <div class="tl-n">05</div>
-        <div>
-          <h3 data-fr="Arrivée et biométrie" data-en="Arrival and biometrics">Arrivée et biométrie</h3>
-          <p data-fr="Vous vous rendez à Malte pour la prise d&#x27;empreintes et le retrait de votre titre de séjour." data-en="You travel to Malta for fingerprinting and to collect your residence card.">Vous vous rendez à Malte pour la prise d'empreintes et le retrait de votre titre de séjour.</p>
-        </div>
-      </div>
-      <div class="tl">
-        <div class="tl-n">06</div>
-        <div>
-          <h3 data-fr="Installation" data-en="Settling in">Installation</h3>
-          <p data-fr="Compte bancaire local, logement de long terme, immatriculation. Nous restons disponibles jusqu&#x27;à ce que tout soit en place." data-en="Local bank account, long-term housing, registration. We stay available until everything is in place.">Compte bancaire local, logement de long terme, immatriculation. Nous restons disponibles jusqu'à ce que tout soit en place.</p>
-        </div>
-      </div>
-    </div>
-    <div class="callout">
-      <b data-fr="Attention à la règle du client maltais" data-en="Watch the Maltese client rule">Attention à la règle du client maltais</b>
-      <p data-fr="Les personnes qui fournissent des services, directement ou indirectement, à des sociétés ou à des particuliers établis à Malte ne sont pas éligibles au Nomad Residence Permit. Si une partie de votre chiffre d&#39;affaires vient de Malte, dites-le-nous dès le départ : cela peut disqualifier le dossier, et il vaut mieux le savoir avant de payer quoi que ce soit." data-en="People providing services, directly or indirectly, to companies or individuals based in Malta are not eligible for the Nomad Residence Permit. If part of your revenue comes from Malta, tell us upfront: it can disqualify the application, and it is better to know before paying anything.">Les personnes qui fournissent des services, directement ou indirectement, à des sociétés ou à des particuliers établis à Malte ne sont pas éligibles au Nomad Residence Permit. Si une partie de votre chiffre d'affaires vient de Malte, dites-le-nous dès le départ : cela peut disqualifier le dossier, et il vaut mieux le savoir avant de payer quoi que ce soit.</p>
-    </div>
-  </div>
-</section>
 
-<section>
-  <div class="wrap">
-    <div class="jobs">
-      <div>
-        <h2 data-fr="Un doute sur votre éligibilité ?" data-en="Unsure whether you qualify?">Un doute sur votre éligibilité ?</h2>
-        <p data-fr="Écrivez-nous en deux lignes : votre nationalité, votre activité et vos revenus. Nous vous dirons franchement si le dossier tient la route, avant tout engagement." data-en="Write us two lines: your nationality, your activity and your income. We&#39;ll tell you honestly whether the application holds up, before any commitment.">Écrivez-nous en deux lignes : votre nationalité, votre activité et vos revenus. Nous vous dirons franchement si le dossier tient la route, avant tout engagement.</p>
+    <div class="dest-switch">
+      <button type="button" class="ds on" data-dest="dubai">Dubaï</button>
+      <button type="button" class="ds" data-dest="malte">Malte</button>
+    </div>
+
+    <div class="form-grid">
+
+      <!-- COLONNE FORMULAIRE -->
+      <div class="panel">
+        <h2 class="panel-t">1. Vos informations</h2>
+        <p class="panel-s">Les champs marqués d'une <span class="req">*</span> sont obligatoires. Vos données ne servent qu'à l'étude de votre dossier.</p>
+
+        <form id="dossierForm" novalidate>
+
+          <h3 class="grp">État civil</h3>
+          <div class="fld">
+            <label for="civ">Civilité<span class="req">*</span></label>
+            <select id="civ" name="civ" required><option value="">Choisir…</option><option>Madame</option><option>Monsieur</option></select>
+          </div>
+          <div class="fld">
+            <label for="nom">Nom de famille<span class="req">*</span></label>
+            <input id="nom" name="nom" type="text" placeholder="Tel qu'il figure sur le passeport" required>
+          </div>
+          <div class="fld">
+            <label for="prenom">Prénom(s)<span class="req">*</span></label>
+            <input id="prenom" name="prenom" type="text" placeholder="" required>
+          </div>
+          <div class="fld">
+            <label for="naissance">Date de naissance<span class="req">*</span></label>
+            <input id="naissance" name="naissance" type="date" placeholder="" required>
+          </div>
+          <div class="fld">
+            <label for="lieu">Lieu de naissance<span class="req">*</span></label>
+            <input id="lieu" name="lieu" type="text" placeholder="Ville, pays" required>
+          </div>
+          <div class="fld">
+            <label for="nationalite">Nationalité<span class="req">*</span></label>
+            <input id="nationalite" name="nationalite" type="text" placeholder="" required>
+          </div>
+          <div class="fld">
+            <label for="famille">Situation familiale<span class="req">*</span></label>
+            <select id="famille" name="famille" required><option value="">Choisir…</option><option>Célibataire</option><option>Marié(e)</option><option>Divorcé(e)</option><option>Veuf(ve)</option></select>
+          </div>
+          <div class="fld">
+            <label for="enfants">Nombre d'enfants à charge</label>
+            <input id="enfants" name="enfants" type="number" placeholder="0">
+          </div>
+
+          <h3 class="grp">Passeport</h3>
+          <div class="fld">
+            <label for="passeport">Numéro de passeport<span class="req">*</span></label>
+            <input id="passeport" name="passeport" type="text" placeholder="" required>
+          </div>
+          <div class="fld">
+            <label for="delivrance">Pays de délivrance<span class="req">*</span></label>
+            <input id="delivrance" name="delivrance" type="text" placeholder="" required>
+          </div>
+          <div class="fld">
+            <label for="expiration">Date d'expiration<span class="req">*</span></label>
+            <input id="expiration" name="expiration" type="date" placeholder="" required>
+          </div>
+
+          <h3 class="grp">Coordonnées</h3>
+          <div class="fld">
+            <label for="pays">Pays de résidence actuel<span class="req">*</span></label>
+            <input id="pays" name="pays" type="text" placeholder="" required>
+          </div>
+          <div class="fld">
+            <label for="adresse">Adresse complète<span class="req">*</span></label>
+            <input id="adresse" name="adresse" type="text" placeholder="Numéro, rue, ville, code postal" required>
+          </div>
+          <div class="fld">
+            <label for="email">Adresse e-mail<span class="req">*</span></label>
+            <input id="email" name="email" type="email" placeholder="" required>
+          </div>
+          <div class="fld">
+            <label for="tel">Téléphone WhatsApp<span class="req">*</span></label>
+            <input id="tel" name="tel" type="tel" placeholder="+971 ..." required>
+          </div>
+
+          <h3 class="grp">Votre projet</h3>
+          <div class="fld">
+            <label for="dest">Destination<span class="req">*</span></label>
+            <select id="dest" name="dest" required><option value="Dubaï">Dubaï — Émirats arabes unis</option><option value="Malte">Malte — Union européenne</option></select>
+          </div>
+          <div class="fld" id="statutDubai">
+            <label for="statut">Statut souhaité<span class="req">*</span></label>
+            <select id="statut" name="statut"><option>Salarié sponsorisé</option><option>Création de société (devis séparé)</option><option>Je ne sais pas encore</option></select>
+          </div>
+          <div class="fld">
+            <label for="metier">Profession actuelle<span class="req">*</span></label>
+            <input id="metier" name="metier" type="text" placeholder="" required>
+          </div>
+          <div class="fld">
+            <label for="revenus">Revenus mensuels nets<span class="req">*</span></label>
+            <input id="revenus" name="revenus" type="text" placeholder="Montant et devise" required>
+          </div>
+          <div class="fld">
+            <label for="infos">Précisions utiles</label>
+            <textarea id="infos" name="infos" rows="4" placeholder="Refus antérieur, séjour en cours, famille à faire venir…"></textarea>
+          </div>
+
+          <label class="consent"><input type="checkbox" id="rgpd" required><span>J'autorise AGD Business Services à traiter ces informations pour l'étude de mon dossier, conformément à la <a href="confidentialite.html">politique de confidentialité</a>.<span class="req">*</span></span></label>
+
+          <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%;justify-content:center;border:0;cursor:pointer;font-family:inherit;margin-top:22px">Envoyer ma demande sur WhatsApp</button>
+          <p class="hint" id="formHint"></p>
+        </form>
       </div>
-      <a href="https://wa.me/971526020915" target="_blank" rel="noopener" class="btn btn-primary" data-fr="Écrire sur WhatsApp" data-en="Message us on WhatsApp">Écrire sur WhatsApp</a>
+
+      <!-- COLONNE PIÈCES -->
+      <div class="panel">
+        <h2 class="panel-t">2. Les pièces à réunir</h2>
+        <p class="panel-s">Cochez au fur et à mesure. Photographiez ou scannez chaque document en couleur, bien lisible, et envoyez-les dans la conversation WhatsApp après l'envoi du formulaire.</p>
+
+        <ul class="doclist" id="doc-dubai">
+          <li><label><input type="checkbox"><span>Passeport</span></label><em>Valide au moins 6 mois. Pages d'identité et de signature, en couleur.</em></li>
+          <li><label><input type="checkbox"><span>Photos d'identité</span></label><em>Format émirien, fond blanc, prises il y a moins de 6 mois.</em></li>
+          <li><label><input type="checkbox"><span>Diplôme</span></label><em>Uniquement pour les professions réglementées. Attesté et traduit.</em></li>
+          <li><label><input type="checkbox"><span>Curriculum vitae</span></label><em>À jour, avec les dates d'emploi.</em></li>
+          <li><label><input type="checkbox"><span>Visa actuel</span></label><em>Si vous êtes déjà aux Émirats : copie du visa en cours et de l'Emirates ID.</em></li>
+          <li><label><input type="checkbox"><span>Annulation du visa précédent</span></label><em>Si vous avez déjà résidé aux Émirats.</em></li>
+          <li><label><input type="checkbox"><span>Acte de mariage et actes de naissance</span></label><em>Seulement si vous souhaitez parrainer votre famille. Traduits et légalisés.</em></li>
+        </ul>
+
+        <ul class="doclist" id="doc-malte" hidden>
+          <li><label><input type="checkbox"><span>Passeport</span></label><em>Valide pendant toute la durée demandée. Toutes les pages utilisées.</em></li>
+          <li><label><input type="checkbox"><span>Photo d'identité</span></label><em>Fond clair, format biométrique récent.</em></li>
+          <li><label><input type="checkbox"><span>Preuve de travail à distance</span></label><em>Contrat de travail, contrats clients ou statuts de votre société à l'étranger.</em></li>
+          <li><label><input type="checkbox"><span>Justificatifs de revenus</span></label><em>Relevés bancaires et bulletins ou factures des 12 derniers mois.</em></li>
+          <li><label><input type="checkbox"><span>Extrait de casier judiciaire</span></label><em>De votre pays de résidence, apostillé et traduit.</em></li>
+          <li><label><input type="checkbox"><span>Assurance santé</span></label><em>Police couvrant Malte pour toute la durée du séjour.</em></li>
+          <li><label><input type="checkbox"><span>Justificatif de logement</span></label><em>Bail, promesse de location ou réservation à Malte.</em></li>
+          <li><label><input type="checkbox"><span>Curriculum vitae</span></label><em>À jour.</em></li>
+        </ul>
+
+        <div class="callout" style="margin-top:26px">
+          <b>Comment nous transmettre les fichiers</b>
+          <p>Notre site n'héberge aucun document, pour votre sécurité. Après l'envoi du formulaire, WhatsApp s'ouvre avec votre récapitulatif : joignez-y vos pièces directement dans la conversation. C'est chiffré de bout en bout, et vous gardez la main sur ce que vous partagez.</p>
+        </div>
+
+        <div class="callout" style="margin-top:18px">
+          <b>Avant d'envoyer</b>
+          <p>Vérifiez que chaque document est entier, net et non rogné, que les dates sont lisibles, et que le passeport est valide. Un dossier complet du premier coup, c'est plusieurs semaines gagnées.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -614,6 +678,62 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
       btn.setAttribute('aria-expanded', open);
     });
   });
+
+  // --- Dépôt de dossier ---
+  var form = document.getElementById('dossierForm');
+  if(form){
+    var dd = document.getElementById('doc-dubai'), dm = document.getElementById('doc-malte');
+    var selDest = document.getElementById('dest'), stat = document.getElementById('statutDubai');
+    function setDest(v){
+      var isD = (v === 'dubai' || v === 'Dubaï');
+      dd.hidden = !isD; dm.hidden = isD;
+      stat.style.display = isD ? '' : 'none';
+      selDest.value = isD ? 'Dubaï' : 'Malte';
+      document.querySelectorAll('.ds').forEach(function(b){
+        b.classList.toggle('on', (b.dataset.dest === 'dubai') === isD);
+      });
+    }
+    document.querySelectorAll('.ds').forEach(function(b){
+      b.addEventListener('click', function(){ setDest(b.dataset.dest); });
+    });
+    selDest.addEventListener('change', function(){ setDest(selDest.value); });
+
+    var LABELS = {civ:'Civilité',nom:'Nom',prenom:'Prénom',naissance:'Né(e) le',lieu:'Lieu de naissance',
+      nationalite:'Nationalité',famille:'Situation familiale',enfants:'Enfants à charge',
+      passeport:'Passeport n°',delivrance:'Délivré par',expiration:'Expire le',
+      pays:'Pays de résidence',adresse:'Adresse',email:'E-mail',tel:'WhatsApp',
+      dest:'Destination',statut:'Statut souhaité',metier:'Profession',revenus:'Revenus mensuels',infos:'Précisions'};
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var hint = document.getElementById('formHint');
+      var missing = [];
+      form.querySelectorAll('[required]').forEach(function(el){
+        var ok = el.type === 'checkbox' ? el.checked : el.value.trim() !== '';
+        if(el.id === 'statut' && stat.style.display === 'none') ok = true;
+        el.classList.toggle('err', !ok);
+        if(!ok) missing.push(el);
+      });
+      if(missing.length){
+        hint.className = 'hint bad';
+        hint.textContent = 'Merci de compléter les ' + missing.length + ' champ(s) obligatoire(s) signalés en rouge.';
+        missing[0].scrollIntoView({behavior:'smooth', block:'center'});
+        return;
+      }
+      var lines = ['*Nouvelle demande de dossier — AGD*', ''];
+      Object.keys(LABELS).forEach(function(k){
+        var el = document.getElementById(k);
+        if(!el) return;
+        if(k === 'statut' && stat.style.display === 'none') return;
+        if(el.value && el.value.trim()) lines.push(LABELS[k] + ' : ' + el.value.trim());
+      });
+      lines.push('', 'Je joins mes documents dans cette conversation.');
+      window.open('https://wa.me/971526020915?text=' + encodeURIComponent(lines.join('\n')), '_blank');
+      hint.className = 'hint';
+      hint.textContent = 'WhatsApp s\'ouvre avec votre récapitulatif. Joignez-y vos documents.';
+    });
+    setDest('dubai');
+  }
 
   // --- Menu déroulant visas ---
   var drop = document.getElementById('drop');

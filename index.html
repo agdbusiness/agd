@@ -78,7 +78,7 @@ footer .logo img{height:52px;opacity:.9}
 .burger.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* ---------- HERO ---------- */
-.hero{position:relative;padding:150px 0 118px;overflow:hidden}
+.hero{position:relative;padding:140px 0 210px;overflow:hidden}
 .hero-bg{
   position:absolute;inset:0;background:url('img/hero.jpg') center/cover no-repeat;
   opacity:.5;
@@ -94,7 +94,128 @@ footer .logo img{height:52px;opacity:.9}
   background:radial-gradient(circle,rgba(139,92,246,.26),rgba(192,38,211,.09) 42%,transparent 68%);
   top:-420px;left:50%;transform:translateX(-50%);pointer-events:none;
 }
-.hero-inner{position:relative;max-width:860px}
+.hero-inner{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center}
+.hero-copy{max-width:620px}
+.hero-copy h1{font-size:clamp(40px,4.6vw,68px)}
+
+/* Passeport animé */
+.pp-stage{position:relative;display:grid;place-items:center;perspective:1800px;min-height:470px}
+.pp{
+  position:relative;width:272px;height:380px;transform-style:preserve-3d;
+  transform:rotateY(-10deg) rotateX(7deg);will-change:transform;
+  animation:ppIn .9s cubic-bezier(.22,.9,.3,1) .15s both;
+}
+@keyframes ppIn{from{opacity:0;transform:translateY(30px) rotateY(14deg) rotateX(10deg) scale(.94)}
+                to{opacity:1;transform:translateY(0) rotateY(-10deg) rotateX(7deg) scale(1)}}
+
+/* page fixe (visas) */
+.pp-right{
+  position:absolute;inset:0;border-radius:4px 12px 12px 4px;overflow:hidden;padding:26px 22px;
+  background:linear-gradient(118deg,#F3EEE2,#E4DCCA 54%,#EFE9DC);
+  box-shadow:inset 22px 0 30px -14px rgba(120,100,70,.45), 0 26px 56px rgba(0,0,0,.5);
+}
+.pp-right::before{
+  content:"";position:absolute;inset:0;opacity:.45;pointer-events:none;
+  background:repeating-linear-gradient(42deg,rgba(150,128,90,.16) 0 1px,transparent 1px 9px),
+             repeating-linear-gradient(-42deg,rgba(150,128,90,.12) 0 1px,transparent 1px 9px);
+}
+
+/* feuille qui pivote */
+.pp-leaf{
+  position:absolute;inset:0;transform-style:preserve-3d;transform-origin:left center;
+  transform:rotateY(0deg);will-change:transform;
+}
+.pp-face{position:absolute;inset:0;backface-visibility:hidden;overflow:hidden}
+
+.pp-cover{
+  border-radius:4px 12px 12px 4px;
+  background:linear-gradient(145deg,#241640,#120B22 58%,#1C1134);
+  box-shadow:0 28px 64px rgba(0,0,0,.6), inset 0 0 0 1px rgba(201,162,39,.22);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:#C9A227;
+}
+.pp-emblem{margin-bottom:16px;opacity:.9}
+.pp-c1{font-size:16px;letter-spacing:.34em;font-weight:500}
+.pp-c2{font-size:10.5px;letter-spacing:.3em;opacity:.62;margin-top:3px}
+.pp-c3{position:absolute;bottom:28px;font-family:var(--serif);font-size:23px;letter-spacing:.14em;opacity:.82}
+
+.pp-inner{
+  transform:rotateY(180deg);border-radius:12px 4px 4px 12px;padding:26px 22px;
+  background:linear-gradient(242deg,#F3EEE2,#E4DCCA 54%,#EFE9DC);
+  box-shadow:inset -22px 0 30px -14px rgba(120,100,70,.45);
+}
+.pp-inner::before{
+  content:"";position:absolute;inset:0;opacity:.45;pointer-events:none;
+  background:repeating-linear-gradient(42deg,rgba(150,128,90,.16) 0 1px,transparent 1px 9px),
+             repeating-linear-gradient(-42deg,rgba(150,128,90,.12) 0 1px,transparent 1px 9px);
+}
+.pp-photo{
+  position:relative;width:86px;height:110px;border-radius:4px;margin-bottom:20px;
+  background:linear-gradient(160deg,#C9BFA8,#9D9279);
+  box-shadow:inset 0 0 0 1px rgba(90,76,50,.35);
+}
+.pp-photo::after{
+  content:"";position:absolute;left:50%;top:25px;transform:translateX(-50%);
+  width:36px;height:36px;border-radius:50%;background:rgba(80,68,46,.42);
+  box-shadow:0 42px 0 -6px rgba(80,68,46,.42);
+}
+.pp-rows{display:grid;gap:11px;position:relative}
+.pp-rows i{display:block;height:7px;border-radius:3px;background:rgba(104,88,58,.3)}
+.pp-rows i:nth-child(2){width:78%}
+.pp-rows i:nth-child(3){width:60%}
+.pp-rows i:nth-child(4){width:84%}
+.pp-rows i:nth-child(5){width:46%}
+.pp-rows.small i{height:5px;background:rgba(104,88,58,.2)}
+.pp-visa-label{
+  position:relative;display:block;font-size:11px;letter-spacing:.3em;
+  color:rgba(96,80,52,.6);margin-bottom:18px;
+}
+
+/* tampon */
+.pp-stamp{
+  position:absolute;left:50%;top:50%;margin:-80px 0 0 -80px;z-index:4;
+  width:160px;height:160px;border-radius:50%;
+  border:4px double rgba(146,38,160,.78);color:rgba(146,38,160,.86);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  opacity:0;transform:translate3d(0,-190px,0) rotate(-30deg) scale(2.4);
+  mix-blend-mode:multiply;will-change:transform,opacity;pointer-events:none;
+}
+.pp-stamp-top{font-size:11px;letter-spacing:.26em;font-weight:600}
+.pp-stamp-main{font-family:var(--serif);font-size:38px;line-height:1;letter-spacing:.06em}
+.pp-stamp-sub{font-size:7.5px;letter-spacing:.14em;margin-top:5px;text-align:center;padding:0 16px}
+.pp-stamp-date{font-size:8px;letter-spacing:.2em;opacity:.8;margin-top:3px}
+
+.pp-hint{
+  position:absolute;left:50%;bottom:6px;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  white-space:nowrap;transition:opacity .4s;
+}
+.pp-hint svg{animation:ppBob 1.7s ease-in-out infinite}
+@keyframes ppBob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+@media(max-width:1040px){
+  .hero-inner{grid-template-columns:1fr;gap:10px}
+  .hero-copy{max-width:100%}
+  .pp-stage{min-height:360px;margin-top:20px;overflow:hidden}
+  .pp{zoom:.74}
+}
+@media(max-width:760px){
+  .pp-stage{min-height:310px}
+  .pp{zoom:.60}
+}
+@media(max-width:430px){
+  .pp-stage{min-height:262px}
+  .pp{zoom:.50}
+}
+@media(prefers-reduced-motion:reduce){
+  .pp,.pp-hint svg{animation:none!important}
+  .pp-leaf{transform:rotateY(-168deg)!important}
+  .pp{transform:scale(.9) translateX(136px) rotateY(-10deg) rotateX(7deg)!important}
+  .pp-stamp{opacity:.9!important;transform:translate3d(0,0,0) rotate(-15deg) scale(1)!important}
+  .pp-hint{display:none}
+}
+
 h1{
   font-family:var(--serif);font-weight:400;font-size:clamp(44px,6.4vw,80px);
   line-height:1.04;letter-spacing:-.015em;
@@ -144,24 +265,26 @@ section{padding:96px 0}
 .card:hover{transform:translateY(-5px);border-color:rgba(167,139,250,.4);box-shadow:0 26px 56px rgba(0,0,0,.5)}
 .card.featured{border-color:rgba(167,139,250,.45);background:linear-gradient(175deg,rgba(139,92,246,.11),var(--surface) 42%)}
 .badge{
-  position:absolute;top:16px;right:16px;z-index:3;font-size:12.5px;font-weight:500;
+  position:absolute;top:16px;right:16px;z-index:6;font-size:12.5px;font-weight:500;
   padding:6px 13px;border-radius:999px;color:#fff;
   background:linear-gradient(135deg,var(--violet),var(--magenta));
 }
-.card-media{position:relative;height:132px;background-size:cover;background-position:center}
+.card-media{position:relative;height:104px;background-size:cover;background-position:center}
 .card-media::after{
-  content:"";position:absolute;inset:0;
+  content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,rgba(5,5,10,.1) 0%,rgba(5,5,10,.75) 72%,var(--surface) 100%);
 }
 .card-dubai{background-image:url('img/dubai.jpg'),linear-gradient(150deg,#C99A3B,#7A3E8F 58%,#3B1D5A)}
 .card-espagne{background-image:url('img/espagne.jpg'),linear-gradient(150deg,#D9534F,#B03A78 55%,#3B1D5A)}
 .card-malte{background-image:url('img/malte.jpg'),linear-gradient(150deg,#2E9BC4,#6B4BC4 58%,#3B1D5A)}
 .flag{
-  position:absolute;top:16px;left:18px;z-index:2;width:36px;height:25px;border-radius:5px;
+  position:absolute;top:16px;left:18px;z-index:5;width:36px;height:25px;border-radius:5px;
   overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.24);
 }
+.dest-head{display:flex;align-items:center;gap:15px}
+.dest-head .flag{position:static;flex:none;width:42px;height:29px;border-radius:5px}
 .flag svg{display:block;width:100%;height:100%}
-.card-body{padding:0 26px 26px;margin-top:-34px;position:relative;z-index:2;display:flex;flex-direction:column;flex:1}
+.card-body{padding:22px 26px 26px;position:relative;z-index:2;display:flex;flex-direction:column;flex:1}
 .dest-name{font-family:var(--serif);font-size:34px;line-height:1.05}
 .dest-name em{display:block;font-family:var(--sans);font-style:normal;font-size:13px;color:var(--muted);margin-top:8px}
 .tags{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 22px}
@@ -185,6 +308,101 @@ section{padding:96px 0}
 .card:hover .card-cta{background:linear-gradient(135deg,var(--violet),var(--magenta));border-color:transparent;color:#fff}
 .card.featured .card-cta{background:linear-gradient(135deg,var(--violet),var(--magenta));border-color:transparent;color:#fff}
 
+/* --- Nav compacte au défilement --- */
+header{transition:background .3s,box-shadow .3s,border-color .3s}
+.nav{transition:height .28s cubic-bezier(.3,.8,.4,1)}
+.logo img{transition:height .28s cubic-bezier(.3,.8,.4,1)}
+header.shrunk{background:rgba(5,5,10,.93);box-shadow:0 10px 34px rgba(0,0,0,.5);border-color:rgba(167,139,250,.2)}
+header.shrunk .nav{height:60px}
+header.shrunk .logo img{height:32px}
+
+/* --- Frise des étapes --- */
+.steps .wrap{position:relative}
+.step-grid{position:relative}
+.step-rail{
+  position:absolute;left:0;right:0;top:0;height:2px;
+  background:var(--line);overflow:hidden;z-index:3;
+}
+.step-rail span{
+  display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--violet),var(--magenta));
+  transition:width .25s linear;
+}
+.step{position:relative;transition:background .35s}
+.step.lit{background:linear-gradient(180deg,rgba(139,92,246,.09),transparent 70%)}
+.step-n{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;border-radius:50%;border:1px solid var(--line);
+  color:var(--muted);font-size:13.5px;transition:.35s;
+}
+.step.lit .step-n{
+  border-color:transparent;color:#fff;
+  background:linear-gradient(135deg,var(--violet),var(--magenta));
+  box-shadow:0 0 0 5px rgba(139,92,246,.16);
+}
+@media(max-width:900px){.step-rail{display:none}}
+
+/* --- Lueur au curseur --- */
+.card,.trust,.panel,.keyfact,.sticky{position:relative}
+.card::after,.trust::after,.sticky::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  opacity:0;transition:opacity .3s;z-index:0;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(139,92,246,.17),transparent 62%);
+}
+.card:hover::after,.trust:hover::after,.sticky:hover::after{opacity:1}
+.card>*,.trust>*,.sticky>*{position:relative;z-index:1}
+
+/* --- Avis : défilement automatique --- */
+.avis-track{cursor:grab}
+.avis-track.dragging{cursor:grabbing;scroll-behavior:auto}
+
+/* Avis clients */
+.avis-sec{border-top:1px solid var(--line)}
+.google-badge{
+  display:flex;align-items:center;gap:16px;justify-content:center;
+  width:max-content;margin:0 auto 44px;padding:16px 28px;
+  border:1px solid var(--line);border-radius:16px;background:var(--surface);
+}
+.gb-score{display:flex;align-items:center;gap:12px}
+.gb-score b{font-family:var(--serif);font-size:32px;font-weight:400;line-height:1}
+.gb-stars{display:flex;gap:3px}
+.gb-label{font-size:14.5px;color:var(--muted);border-left:1px solid var(--line);padding-left:16px}
+.avis-wrap{position:relative}
+.avis-track{
+  display:grid;grid-auto-flow:column;grid-auto-columns:minmax(330px,1fr);gap:22px;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  padding:4px 2px 18px;scrollbar-width:none;
+}
+.avis-track::-webkit-scrollbar{display:none}
+.avis{
+  scroll-snap-align:start;border:1px solid var(--line);border-radius:18px;
+  padding:26px;background:var(--surface);display:flex;flex-direction:column;
+}
+.avis-stars{display:flex;gap:3px;margin-bottom:16px}
+.avis p{color:var(--muted);font-size:15.5px;line-height:1.65;flex:1}
+.avis-who{display:flex;align-items:center;gap:13px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.avis-who img,.avis-ini{
+  width:46px;height:46px;border-radius:50%;object-fit:cover;flex:none;
+  display:grid;place-items:center;font-size:18px;font-weight:600;color:#fff;
+  background:linear-gradient(135deg,var(--violet),var(--magenta));
+}
+.avis-who b{display:block;font-size:15.5px;font-weight:600}
+.avis-who span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.avis-nav{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:4;
+  width:46px;height:46px;border-radius:50%;cursor:pointer;
+  background:rgba(14,12,24,.92);border:1px solid var(--line);color:var(--text);
+  font-size:26px;line-height:1;transition:.18s;
+}
+.avis-nav:hover{background:var(--violet);border-color:transparent}
+.avis-nav.prev{left:-20px}
+.avis-nav.next{right:-20px}
+@media(max-width:860px){
+  .avis-nav{display:none}
+  .avis-track{grid-auto-columns:86%}
+  .google-badge{gap:12px;padding:14px 20px}
+}
+
 /* FAQ */
 .faq .sec-head{max-width:620px}
 .faq-list{max-width:900px;margin:0 auto;border-top:1px solid var(--line)}
@@ -207,6 +425,35 @@ section{padding:96px 0}
   .faq-q{gap:13px;padding:20px 2px}
   .faq-t{font-size:16px}
   .faq-a p{padding-left:0}
+}
+
+/* Bureau */
+.office-sec{border-top:1px solid var(--line)}
+.office{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.office-photo{
+  position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);
+  aspect-ratio:4/3;background:var(--surface);
+}
+.office-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.office-photo.noimg::after{
+  content:"Photo du bureau — img/bureau.jpg";
+  position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:30px;
+  color:var(--muted);font-size:14.5px;
+  background:radial-gradient(120% 120% at 30% 10%,rgba(139,92,246,.18),transparent 60%),var(--surface-2);
+}
+.office-tag{
+  display:inline-block;font-size:13px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--violet-soft);margin-bottom:18px;
+}
+.office-txt h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.8vw,44px);line-height:1.1}
+.office-txt p{color:var(--muted);margin-top:18px;font-size:16.5px;line-height:1.7}
+.office-lines{display:grid;gap:2px;margin:28px 0;border-top:1px solid var(--line)}
+.office-lines div{padding:16px 0;border-bottom:1px solid var(--line)}
+.office-lines b{display:block;font-size:15.5px;font-weight:600}
+.office-lines span{display:block;font-size:14px;color:var(--muted);margin-top:3px}
+@media(max-width:900px){
+  .office{grid-template-columns:1fr;gap:34px}
+  .office-photo{aspect-ratio:16/10}
 }
 
 /* Partenaires */
@@ -302,6 +549,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
   *{transition:none!important;animation:none!important}
   html{scroll-behavior:auto}
 }
+
 </style>
 </head>
 <body>
@@ -322,6 +570,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
           <a href="visa-malte.html">Malte<span data-fr="Freelance · Nomad Residence" data-en="Freelance · Nomad Residence">Freelance · Nomad Residence</span></a>
         </div>
       </div>
+      <a href="depot-dossier.html" data-fr="Déposer mon dossier" data-en="Submit my file">Déposer mon dossier</a>
       <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
     </nav>
 
@@ -342,12 +591,57 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
   <div class="glow"></div>
   <div class="hero-bg"></div>
   <div class="wrap hero-inner">
+    <div class="hero-copy">
     <h1 id="typed"><span class="t1"></span><span class="grad t2"></span><span class="cursor" id="cursor"></span></h1>
     <p class="lede reveal" data-fr="AGD Business Services accompagne les personnes qui s'installent à Dubaï ou à Malte. On analyse votre situation, on choisit le bon statut, et on prépare chaque pièce du dossier avec vous." data-en="AGD Business Services guides people relocating to Dubai or Malta. We assess your situation, pick the right status, and prepare every document with you.">AGD Business Services accompagne les personnes qui s'installent à Dubaï ou à Malte. On analyse votre situation, on choisit le bon statut, et on prépare chaque pièce du dossier avec vous.</p>
     <div class="cta-row reveal">
       <a href="#destinations" class="btn btn-primary" data-fr="Voir les visas" data-en="See the visas">Voir les visas</a>
-      <a href="#contact" class="btn btn-ghost" data-fr="Parler à un conseiller" data-en="Talk to an advisor">Parler à un conseiller</a>
+      <a href="depot-dossier.html" class="btn btn-ghost" data-fr="Déposer mon dossier" data-en="Submit my file">Déposer mon dossier</a>
     </div>
+    </div>
+
+    <div class="pp-stage reveal" aria-hidden="true">
+      <div class="pp" id="pp">
+
+        <!-- page fixe : la page des visas -->
+        <div class="pp-page pp-right">
+          <span class="pp-visa-label">VISAS</span>
+          <div class="pp-rows small"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="pp-stamp" id="ppStamp">
+            <span class="pp-stamp-top">APPROVED</span>
+            <span class="pp-stamp-main">VISA</span>
+            <span class="pp-stamp-sub">AGD BUSINESS SERVICES</span>
+            <span class="pp-stamp-date">DUBAI · MALTA</span>
+          </div>
+        </div>
+
+        <!-- feuille qui pivote : couverture devant, page photo derrière -->
+        <div class="pp-leaf" id="ppLeaf">
+          <div class="pp-face pp-cover">
+            <div class="pp-emblem">
+              <svg viewBox="0 0 48 48" width="46" height="46" fill="none">
+                <circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+                <ellipse cx="24" cy="24" rx="9" ry="21" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+                <path d="M3.6 17.5h40.8M3.6 30.5h40.8M24 3v42" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+              </svg>
+            </div>
+            <span class="pp-c1">PASSEPORT</span>
+            <span class="pp-c2">PASSPORT</span>
+            <span class="pp-c3">AGD</span>
+          </div>
+          <div class="pp-face pp-inner">
+            <div class="pp-photo"></div>
+            <div class="pp-rows"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="pp-hint" id="ppHint">
+        <span data-fr="Faites défiler" data-en="Scroll down">Faites défiler</span>
+        <svg width="16" height="22" viewBox="0 0 16 22" fill="none"><path d="M8 1v18M1.5 13L8 19.5 14.5 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -361,11 +655,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
 
     <div class="dest dest-2">
 
-      <a class="card featured" href="visa-dubai.html">
-        <span class="badge" data-fr="Le plus demandé" data-en="Most requested">Le plus demandé</span>
-        <div class="card-media card-dubai"><span class="flag"><svg viewBox="0 0 60 40"><rect width="20" height="40" fill="#CE1126"/><rect x="20" width="40" height="13.34" fill="#009739"/><rect x="20" y="13.34" width="40" height="13.33" fill="#fff"/><rect x="20" y="26.67" width="40" height="13.33" fill="#000"/></svg></span></div>
-        <div class="card-body">
-          <div class="dest-name">Dubaï<em data-fr="Émirats arabes unis" data-en="United Arab Emirates">Émirats arabes unis</em></div>
+      <a class="card" href="visa-dubai.html">
+        <div class="card-media card-dubai"></div>
+                <div class="card-body">
+          <div class="dest-head"><span class="flag"><svg viewBox="0 0 60 40"><rect width="20" height="40" fill="#CE1126"/><rect x="20" width="40" height="13.34" fill="#009739"/><rect x="20" y="13.34" width="40" height="13.33" fill="#fff"/><rect x="20" y="26.67" width="40" height="13.33" fill="#000"/></svg></span><div class="dest-name">Dubaï<em data-fr="Émirats arabes unis" data-en="United Arab Emirates">Émirats arabes unis</em></div></div>
           <div class="tags">
             <span class="tag" data-fr="Statut salarié" data-en="Employment status">Statut salarié</span>
             <span class="tag" data-fr="Création de société possible" data-en="Company setup available">Création de société possible</span>
@@ -392,15 +685,15 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
       </a>
 
       <a class="card" href="visa-malte.html">
-        <div class="card-media card-malte"><span class="flag"><svg viewBox="0 0 60 40"><rect width="30" height="40" fill="#fff"/><rect x="30" width="30" height="40" fill="#CF142B"/><rect x="4" y="6" width="13" height="13" fill="none" stroke="#B9B9B9" stroke-width="1"/><path d="M9.2 8.5h3v2.6h2.6v3h-2.6v2.6h-3v-2.6H6.6v-3h2.6z" fill="#C1B49A"/></svg></span></div>
-        <div class="card-body">
-          <div class="dest-name">Malte<em data-fr="Union européenne · Espace Schengen" data-en="European Union · Schengen area">Union européenne · Espace Schengen</em></div>
+        <div class="card-media card-malte"></div>
+                <div class="card-body">
+          <div class="dest-head"><span class="flag"><svg viewBox="0 0 60 40"><rect width="30" height="40" fill="#fff"/><rect x="30" width="30" height="40" fill="#CF142B"/><rect x="4" y="6" width="13" height="13" fill="none" stroke="#B9B9B9" stroke-width="1"/><path d="M9.2 8.5h3v2.6h2.6v3h-2.6v2.6h-3v-2.6H6.6v-3h2.6z" fill="#C1B49A"/></svg></span><div class="dest-name">Malte<em data-fr="Union européenne · Espace Schengen" data-en="European Union · Schengen area">Union européenne · Espace Schengen</em></div></div>
           <div class="tags">
             <span class="tag">Freelance</span>
             <span class="tag">Nomad Residence Permit</span>
           </div>
           <div class="price-box">
-            <div class="price"><b>8 000 AED</b><span data-fr="d'honoraires" data-en="in fees">d'honoraires</span></div>
+            <div class="price"><b>6 000 €</b><span data-fr="d'honoraires" data-en="in fees">d'honoraires</span></div>
             <div class="price-row">
               <span data-fr="Délai moyen" data-en="Average timeline">Délai moyen</span>
               <b data-fr="1 mois" data-en="1 month">1 mois</b>
@@ -432,6 +725,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
       <p data-fr="Un parcours en quatre temps, du premier échange jusqu'à votre arrivée." data-en="A four-stage process, from the first call to your arrival.">Un parcours en quatre temps, du premier échange jusqu'à votre arrivée.</p>
     </div>
     <div class="step-grid">
+      <div class="step-rail"><span id="stepRail"></span></div>
       <div class="step">
         <div class="step-n">01</div>
         <h3 data-fr="Échange gratuit" data-en="Free consultation">Échange gratuit</h3>
@@ -534,6 +828,136 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
   </div>
 </section>
 
+<!-- AVIS -->
+<section class="avis-sec">
+  <div class="wrap">
+    <div class="sec-head" style="margin:0 auto 40px;text-align:center">
+      <h2 data-fr="Ils nous ont fait confiance" data-en="They trusted us">Ils nous ont fait confiance</h2>
+      <p data-fr="Des dossiers montés, déposés et suivis jusqu&#39;au bout." data-en="Applications prepared, filed and followed through.">Des dossiers montés, déposés et suivis jusqu'au bout.</p>
+    </div>
+
+    <div class="google-badge">
+      <svg width="26" height="26" viewBox="0 0 48 48"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.2-.4-4.7H24v8.9h11.8c-.5 2.7-2 5-4.4 6.6v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.3z"/><path fill="#34A853" d="M24 46c6 0 11-2 14.6-5.2l-7.1-5.5c-2 1.3-4.5 2.1-7.5 2.1-5.8 0-10.7-3.9-12.4-9.1H4.3v5.7C7.9 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.6 28.3c-.4-1.3-.7-2.7-.7-4.3s.3-3 .7-4.3v-5.7H4.3C2.8 17 2 20.4 2 24s.8 7 2.3 10l7.3-5.7z"/><path fill="#EA4335" d="M24 10.6c3.3 0 6.2 1.1 8.5 3.3l6.3-6.3C35 4.1 30 2 24 2 15.4 2 7.9 6.9 4.3 14l7.3 5.7c1.7-5.2 6.6-9.1 12.4-9.1z"/></svg>
+      <div class="gb-score"><b>4,8</b><div class="gb-stars"><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg></div></div>
+      <span class="gb-label" data-fr="Avis Google" data-en="Google reviews">Avis Google</span>
+    </div>
+
+    <div class="avis-wrap">
+      <button class="avis-nav prev" type="button" aria-label="Précédent">&#8249;</button>
+      <div class="avis-track" id="avisTrack">
+        <article class="avis">
+          <div class="avis-stars"><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg></div>
+          <p>Dossier déposé en février, visa obtenu avant la fin du mois. Ce que j'ai apprécié : on m'a dit dès le départ ce qui n'allait pas dans mes papiers au lieu de me laisser avancer à l'aveugle.</p>
+          <div class="avis-who">
+            <img src="img/avis-1.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'avis-ini',textContent:'K'}))">
+            <div><b>Karim B.</b><span>Dubaï — Statut salarié</span></div>
+          </div>
+        </article>
+
+        <article class="avis">
+          <div class="avis-stars"><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg></div>
+          <p>I was already in Dubai on a visit visa and thought I had to fly home and come back. They handled the change of status from inside the country, so I never had to leave.</p>
+          <div class="avis-who">
+            <img src="img/avis-2.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'avis-ini',textContent:'I'}))">
+            <div><b>Imran K.</b><span>Dubai — Employment visa</span></div>
+          </div>
+        </article>
+
+        <article class="avis">
+          <div class="avis-stars"><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg></div>
+          <p>Je travaille en freelance depuis le Maroc. Ils ont vérifié mon éligibilité gratuitement avant que je paie quoi que ce soit, et m'ont expliqué précisément quels contrats fournir.</p>
+          <div class="avis-who">
+            <img src="img/avis-3.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'avis-ini',textContent:'S'}))">
+            <div><b>Sofia M.</b><span>Malte — Visa nomade</span></div>
+          </div>
+        </article>
+
+        <article class="avis">
+          <div class="avis-stars"><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg></div>
+          <p>They looked at my paperwork and told me honestly my contracts were too recent to pass. I came back eight months later with a stronger file and it went through first time.</p>
+          <div class="avis-who">
+            <img src="img/avis-4.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'avis-ini',textContent:'P'}))">
+            <div><b>Priya S.</b><span>Malta — Nomad visa</span></div>
+          </div>
+        </article>
+
+        <article class="avis">
+          <div class="avis-stars"><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg></div>
+          <p>Réponse sur WhatsApp en moins d'une heure à chaque fois. Pour quelqu'un qui part vivre à l'étranger, ça change tout d'avoir un interlocuteur qui répond.</p>
+          <div class="avis-who">
+            <img src="img/avis-5.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'avis-ini',textContent:'Y'}))">
+            <div><b>Yacine T.</b><span>Dubaï — Statut salarié</span></div>
+          </div>
+        </article>
+
+        <article class="avis">
+          <div class="avis-stars"><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg></div>
+          <p>The medical test and the Emirates ID appointments were all booked for me, with the addresses and the times sent the day before. I just had to show up.</p>
+          <div class="avis-who">
+            <img src="img/avis-6.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'avis-ini',textContent:'M'}))">
+            <div><b>Mohammed Rizwan</b><span>Dubai — Employment visa</span></div>
+          </div>
+        </article>
+
+        <article class="avis">
+          <div class="avis-stars"><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg></div>
+          <p>L'étape des traductions et apostilles me faisait peur, ils ont tout piloté. Je n'ai eu qu'à fournir les originaux.</p>
+          <div class="avis-who">
+            <img src="img/avis-7.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'avis-ini',textContent:'N'}))">
+            <div><b>Nadia L.</b><span>Malte — Visa nomade</span></div>
+          </div>
+        </article>
+
+        <article class="avis">
+          <div class="avis-stars"><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg></div>
+          <p>My first health insurance policy did not meet the requirements and I had no idea. They spotted it before filing and found me one that was compliant.</p>
+          <div class="avis-who">
+            <img src="img/avis-8.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'avis-ini',textContent:'A'}))">
+            <div><b>Anjali M.</b><span>Malta — Nomad visa</span></div>
+          </div>
+        </article>
+
+        <article class="avis">
+          <div class="avis-stars"><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg></div>
+          <p>Devis clair dès le premier échange, aucun frais surprise en cours de route. C'est rare dans ce milieu.</p>
+          <div class="avis-who">
+            <img src="img/avis-9.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'avis-ini',textContent:'M'}))">
+            <div><b>Mehdi A.</b><span>Dubaï — Création de société</span></div>
+          </div>
+        </article>
+
+        <article class="avis">
+          <div class="avis-stars"><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg></div>
+          <p>I was set on a free zone licence. They walked me through why mainland suited my activity better, with the real cost difference laid out. Saved me from an expensive mistake.</p>
+          <div class="avis-who">
+            <img src="img/avis-10.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'avis-ini',textContent:'F'}))">
+            <div><b>Faisal A.</b><span>Dubai — Company setup</span></div>
+          </div>
+        </article>
+
+        <article class="avis">
+          <div class="avis-stars"><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg></div>
+          <p>Mon mari est parti en premier, puis ils ont monté le dossier pour moi et les enfants. Tout s'est enchaîné sans accroc.</p>
+          <div class="avis-who">
+            <img src="img/avis-11.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'avis-ini',textContent:'L'}))">
+            <div><b>Lina K.</b><span>Dubaï — Parrainage famille</span></div>
+          </div>
+        </article>
+
+        <article class="avis">
+          <div class="avis-stars"><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg><svg viewBox="0 0 20 19" width="20" height="19"><path d="M10 0l2.6 6.3 6.8.5-5.2 4.4 1.6 6.6L10 14.3 4.2 17.8l1.6-6.6L.6 6.8l6.8-.5z" fill="#FFC53D"/></svg></div>
+          <p>Help did not stop at the visa. They stayed on the line for the bank account and pointed us to schools that still had places for our daughter.</p>
+          <div class="avis-who">
+            <img src="img/avis-12.jpg" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'avis-ini',textContent:'R'}))">
+            <div><b>Rohit P.</b><span>Dubai — Family sponsorship</span></div>
+          </div>
+        </article>
+      </div>
+      <button class="avis-nav next" type="button" aria-label="Suivant">&#8250;</button>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="faq">
   <div class="wrap">
@@ -627,6 +1051,28 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
   </div>
 </section>
 
+<!-- BUREAU -->
+<section class="office-sec">
+  <div class="wrap">
+    <div class="office">
+      <div class="office-photo">
+        <img src="img/bureau.jpg" alt="Les bureaux d'AGD Business Services à Business Bay, Dubaï" loading="lazy"
+             onerror="this.closest('.office-photo').classList.add('noimg');this.remove()">
+      </div>
+      <div class="office-txt">
+        <span class="office-tag" data-fr="Notre bureau" data-en="Our office">Notre bureau</span>
+        <h2 data-fr="De passage à Dubaï ? Le café est pour nous." data-en="Passing through Dubai? The coffee is on us.">De passage à Dubaï ? Le café est pour nous.</h2>
+        <p data-fr="Nous recevons sur rendez-vous à Business Bay. Venez poser vos questions en face à face, repartez avec la liste exacte des pièces de votre dossier. Aucun engagement, aucun frais." data-en="We welcome visitors by appointment in Business Bay. Come ask your questions face to face and leave with the exact document list for your application. No commitment, no charge.">Nous recevons sur rendez-vous à Business Bay. Venez poser vos questions en face à face, repartez avec la liste exacte des pièces de votre dossier. Aucun engagement, aucun frais.</p>
+        <div class="office-lines">
+          <div><b>Citadel Tower, Office 2106</b><span>Business Bay, Dubaï, Émirats arabes unis</span></div>
+          <div><b data-fr="Dimanche au jeudi" data-en="Sunday to Thursday">Dimanche au jeudi</b><span data-fr="9 h – 18 h (heure du Golfe)" data-en="9am – 6pm (Gulf time)">9 h – 18 h (heure du Golfe)</span></div>
+        </div>
+        <a href="https://wa.me/971526020915?text=Bonjour%2C%20je%20suis%20de%20passage%20%C3%A0%20Duba%C3%AF%20et%20j%27aimerais%20prendre%20rendez-vous%20%C3%A0%20votre%20bureau." target="_blank" rel="noopener" class="btn btn-primary" data-fr="Prendre rendez-vous" data-en="Book a visit">Prendre rendez-vous</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PARTENAIRES -->
 <section class="partners">
   <div class="wrap">
@@ -650,7 +1096,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
       <div class="foot-links">
         <a href="visa-dubai.html">Dubaï</a>
         <a href="visa-malte.html">Malte</a>
-          <a href="mentions-legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
+          <a href="depot-dossier.html" data-fr="Déposer mon dossier" data-en="Submit my file">Déposer mon dossier</a>
+        <a href="mentions-legales.html" data-fr="Mentions légales" data-en="Legal notice">Mentions légales</a>
         <a href="cgv.html" data-fr="CGV" data-en="Terms">CGV</a>
         <a href="confidentialite.html" data-fr="Confidentialité" data-en="Privacy">Confidentialité</a>
       </div>
@@ -732,6 +1179,164 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
       });
     }, {threshold:.18});
     cards.forEach(function(c){ io.observe(c); });
+  }
+
+  // --- Passeport piloté par le défilement ---
+  var pp = document.getElementById('pp');
+  if(pp && !reduce){
+    var leaf  = document.getElementById('ppLeaf');
+    var stamp = document.getElementById('ppStamp');
+    var hint  = document.getElementById('ppHint');
+    var landed = false, ticking = false;
+    function clamp(v){ return v < 0 ? 0 : v > 1 ? 1 : v; }
+    function ease(t){ return 1 - Math.pow(1 - t, 3); }
+
+    function render(){
+      ticking = false;
+      var range = Math.max(window.innerHeight * 0.62, 360);
+      var p = clamp(window.scrollY / range);
+
+      // 0 → 0.42 : la couverture pivote vers la gauche
+      var o = ease(clamp(p / 0.42));
+      leaf.style.transform = 'rotateY(' + (-168 * o) + 'deg)';
+      // le livre glisse d'une demi-page vers la droite : la double page reste centrée,
+      // et rétrécit un peu pour tenir dans la largeur sur mobile
+      var k = 1 - 0.1 * o;
+      pp.style.transform = 'scale(' + k + ') translateX(' + (136 * o) +
+        'px) rotateY(-10deg) rotateX(7deg)';
+
+      // 0.42 → 0.62 : le tampon plonge et se pose, vite
+      var t = clamp((p - 0.42) / 0.20);
+      if(t <= 0){
+        stamp.style.opacity = 0;
+        stamp.style.transform = 'translate3d(0,-190px,0) rotate(-30deg) scale(2.4)';
+        landed = false;
+      } else if(t < 1){
+        var e = 1 - Math.pow(1 - t, 4);
+        stamp.style.opacity = Math.min(t * 3, .92);
+        stamp.style.transform = 'translate3d(0,' + (-190 * (1 - e)) + 'px,0) rotate(' +
+          (-30 + 15 * e) + 'deg) scale(' + (2.4 - 1.4 * e) + ')';
+        landed = false;
+      } else if(!landed){
+        landed = true;
+        stamp.style.opacity = .9;
+        stamp.style.transform = 'translate3d(0,0,0) rotate(-15deg) scale(1)';
+        stamp.animate(
+          [{transform:'translate3d(0,0,0) rotate(-15deg) scale(.92)'},
+           {transform:'translate3d(0,0,0) rotate(-15deg) scale(1)'}],
+          {duration:280, easing:'cubic-bezier(.3,1.6,.5,1)'});
+      }
+      if(hint) hint.style.opacity = p > 0.05 ? 0 : 1;
+    }
+    window.addEventListener('scroll', function(){
+      if(!ticking){ ticking = true; requestAnimationFrame(render); }
+    }, {passive:true});
+    window.addEventListener('resize', render);
+    render();
+  }
+
+  // --- Nav compacte ---
+  var hdr = document.querySelector('header');
+  if(hdr){
+    var lastShrunk = null;
+    function navScroll(){
+      var sh = window.scrollY > 40;
+      if(sh !== lastShrunk){ lastShrunk = sh; hdr.classList.toggle('shrunk', sh); }
+    }
+    window.addEventListener('scroll', navScroll, {passive:true});
+    navScroll();
+  }
+
+  // --- Frise des étapes ---
+  var rail = document.getElementById('stepRail');
+  var stepsEls = document.querySelectorAll('.step-grid .step');
+  if(rail && stepsEls.length){
+    var grid = rail.closest('.step-grid');
+    var railTick = false;
+    function railRender(){
+      railTick = false;
+      var r = grid.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var p = (vh * 0.82 - r.top) / Math.max(r.height * 0.75, 1);
+      p = p < 0 ? 0 : p > 1 ? 1 : p;
+      rail.style.width = (p * 100) + '%';
+      stepsEls.forEach(function(el, i){
+        el.classList.toggle('lit', p >= (i + 0.35) / stepsEls.length);
+      });
+    }
+    window.addEventListener('scroll', function(){
+      if(!railTick){ railTick = true; requestAnimationFrame(railRender); }
+    }, {passive:true});
+    window.addEventListener('resize', railRender);
+    railRender();
+  }
+
+  // --- Lueur au curseur ---
+  if(window.matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.card, .trust, .sticky').forEach(function(el){
+      el.addEventListener('pointermove', function(e){
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
+
+  // --- Avis : défilement automatique ---
+  var at = document.getElementById('avisTrack');
+  if(at && !reduce){
+    // duplique les cartes pour une boucle sans couture
+    var originals = Array.prototype.slice.call(at.children);
+    var cycle = 0;
+    originals.forEach(function(c){ at.appendChild(c.cloneNode(true)); });
+    function measure(){
+      cycle = 0;
+      originals.forEach(function(c){ cycle += c.offsetWidth + 22; });
+    }
+    measure();
+    window.addEventListener('resize', measure);
+
+    var paused = false, raf = null, last = 0;
+    var SPEED = 26; // pixels par seconde
+
+    function tick(ts){
+      if(!last) last = ts;
+      var dt = (ts - last) / 1000; last = ts;
+      if(!paused && cycle > 0){
+        at.scrollLeft += SPEED * dt;
+        if(at.scrollLeft >= cycle) at.scrollLeft -= cycle;
+      }
+      raf = requestAnimationFrame(tick);
+    }
+
+    function hold(){ paused = true; }
+    function release(){ paused = false; last = 0; }
+    at.addEventListener('pointerenter', hold);
+    at.addEventListener('pointerleave', release);
+    at.addEventListener('pointerdown', hold);
+    at.addEventListener('touchstart', hold, {passive:true});
+    at.addEventListener('touchend', function(){ setTimeout(release, 2500); }, {passive:true});
+    window.addEventListener('pointerup', release);
+
+    // ne tourne que lorsque la section est visible
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(e){
+        if(e[0].isIntersecting){ if(!raf){ last = 0; raf = requestAnimationFrame(tick); } }
+        else if(raf){ cancelAnimationFrame(raf); raf = null; }
+      }, {threshold:.05}).observe(at);
+    } else { raf = requestAnimationFrame(tick); }
+
+    // les flèches avancent d'une carte et relancent après une pause
+    var prevB = document.querySelector('.avis-nav.prev');
+    var nextB = document.querySelector('.avis-nav.next');
+    function nudge(dir){
+      paused = true;
+      at.scrollBy({left: dir * (at.firstElementChild.offsetWidth + 22), behavior:'smooth'});
+      clearTimeout(nudge._t);
+      nudge._t = setTimeout(release, 2200);
+    }
+    if(prevB){ prevB.onclick = function(){ nudge(-1); }; }
+    if(nextB){ nextB.onclick = function(){ nudge(1); }; }
   }
 
   // --- FAQ ---
