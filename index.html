@@ -99,10 +99,10 @@ footer .logo img{height:52px;opacity:.9}
 .hero-copy h1{font-size:clamp(40px,4.6vw,68px)}
 
 /* Passeport animé */
-.pp-stage{position:relative;display:grid;place-items:center;perspective:1800px;min-height:470px}
+.pp-stage{--pps:1;position:relative;display:grid;place-items:center;perspective:1800px;min-height:470px}
 .pp{
   position:relative;width:272px;height:380px;transform-style:preserve-3d;
-  transform:rotateY(-10deg) rotateX(7deg);will-change:transform;
+  transform:scale(var(--pps)) rotateY(-10deg) rotateX(7deg);will-change:transform;
   animation:ppIn .9s cubic-bezier(.22,.9,.3,1) .15s both;
 }
 @keyframes ppIn{from{opacity:0;transform:translateY(30px) rotateY(14deg) rotateX(10deg) scale(.94)}
@@ -171,49 +171,40 @@ footer .logo img{height:52px;opacity:.9}
   color:rgba(96,80,52,.6);margin-bottom:18px;
 }
 
-/* tampon */
+/* tampon — en surcouche de la scène, jamais rogné */
 .pp-stamp{
-  position:absolute;left:50%;top:50%;margin:-80px 0 0 -80px;z-index:4;
-  width:160px;height:160px;border-radius:50%;
-  border:4px double rgba(146,38,160,.78);color:rgba(146,38,160,.86);
+  position:absolute;left:50%;top:50%;z-index:9;
+  width:160px;height:160px;margin:-80px 0 0 -80px;border-radius:50%;
+  border:4px double #9226A0;color:#9226A0;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
   opacity:0;transform:translate3d(0,-190px,0) rotate(-30deg) scale(2.4);
-  mix-blend-mode:multiply;will-change:transform,opacity;pointer-events:none;
+  will-change:transform,opacity;pointer-events:none;
+  text-shadow:0 0 1px rgba(146,38,160,.4);
 }
 .pp-stamp-top{font-size:11px;letter-spacing:.26em;font-weight:600}
 .pp-stamp-main{font-family:var(--serif);font-size:38px;line-height:1;letter-spacing:.06em}
 .pp-stamp-sub{font-size:7.5px;letter-spacing:.14em;margin-top:5px;text-align:center;padding:0 16px}
 .pp-stamp-date{font-size:8px;letter-spacing:.2em;opacity:.8;margin-top:3px}
 
-.pp-hint{
-  position:absolute;left:50%;bottom:6px;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:7px;
-  font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
-  white-space:nowrap;transition:opacity .4s;
-}
-.pp-hint svg{animation:ppBob 1.7s ease-in-out infinite}
-@keyframes ppBob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
-
 @media(max-width:1040px){
   .hero-inner{grid-template-columns:1fr;gap:10px}
   .hero-copy{max-width:100%}
-  .pp-stage{min-height:360px;margin-top:20px;overflow:hidden}
-  .pp{zoom:.74}
+  .pp-stage{--pps:.78;min-height:380px;margin-top:20px}
+  .pp-stamp{transform-origin:center}
 }
 @media(max-width:760px){
-  .pp-stage{min-height:310px}
-  .pp{zoom:.60}
+  .pp-stage{--pps:.60;min-height:320px}
 }
-@media(max-width:430px){
-  .pp-stage{min-height:262px}
-  .pp{zoom:.50}
+@media(max-width:480px){
+  .pp-stage{--pps:.46;min-height:258px}
+  .pp-stamp{width:132px;height:132px;margin:-66px 0 0 -66px}
+  .pp-stamp-main{font-size:31px}
 }
 @media(prefers-reduced-motion:reduce){
-  .pp,.pp-hint svg{animation:none!important}
+  .pp{animation:none!important}
   .pp-leaf{transform:rotateY(-168deg)!important}
-  .pp{transform:scale(.9) translateX(136px) rotateY(-10deg) rotateX(7deg)!important}
-  .pp-stamp{opacity:.9!important;transform:translate3d(0,0,0) rotate(-15deg) scale(1)!important}
-  .pp-hint{display:none}
+  .pp{transform:scale(calc(var(--pps) * .9)) translateX(136px) rotateY(-10deg) rotateX(7deg)!important}
+  .pp-stamp{opacity:.92!important;transform:translate3d(0,0,0) rotate(-15deg) scale(1)!important}
 }
 
 h1{
@@ -434,9 +425,23 @@ header.shrunk .logo img{height:32px}
   position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);
   aspect-ratio:4/3;background:var(--surface);
 }
-.office-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.office-slides{position:absolute;inset:0}
+.office-slides img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;
+  opacity:0;transition:opacity .8s ease;
+}
+.office-slides img.on{opacity:1}
+.office-dots{
+  position:absolute;left:0;right:0;bottom:16px;z-index:3;
+  display:flex;justify-content:center;gap:9px;
+}
+.office-dots button{
+  width:8px;height:8px;padding:0;border:0;border-radius:50%;cursor:pointer;
+  background:rgba(255,255,255,.42);transition:.25s;
+}
+.office-dots button.on{width:26px;border-radius:999px;background:#fff}
 .office-photo.noimg::after{
-  content:"Photo du bureau — img/bureau.jpg";
+  content:"Photos du bureau — img/bureau-1.jpg, bureau-2.jpg, bureau-3.jpg";
   position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:30px;
   color:var(--muted);font-size:14.5px;
   background:radial-gradient(120% 120% at 30% 10%,rgba(139,92,246,.18),transparent 60%),var(--surface-2);
@@ -607,12 +612,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
         <div class="pp-page pp-right">
           <span class="pp-visa-label">VISAS</span>
           <div class="pp-rows small"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <div class="pp-stamp" id="ppStamp">
-            <span class="pp-stamp-top">APPROVED</span>
-            <span class="pp-stamp-main">VISA</span>
-            <span class="pp-stamp-sub">AGD BUSINESS SERVICES</span>
-            <span class="pp-stamp-date">DUBAI · MALTA</span>
-          </div>
         </div>
 
         <!-- feuille qui pivote : couverture devant, page photo derrière -->
@@ -636,9 +635,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
         </div>
 
       </div>
-      <div class="pp-hint" id="ppHint">
-        <span data-fr="Faites défiler" data-en="Scroll down">Faites défiler</span>
-        <svg width="16" height="22" viewBox="0 0 16 22" fill="none"><path d="M8 1v18M1.5 13L8 19.5 14.5 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="pp-stamp" id="ppStamp">
+        <span class="pp-stamp-top">APPROVED</span>
+        <span class="pp-stamp-main">VISA</span>
+        <span class="pp-stamp-sub">AGD BUSINESS SERVICES</span>
+        <span class="pp-stamp-date">DUBAI · MALTA</span>
       </div>
     </div>
 
@@ -1055,9 +1056,13 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
 <section class="office-sec">
   <div class="wrap">
     <div class="office">
-      <div class="office-photo">
-        <img src="img/bureau.jpg" alt="Les bureaux d'AGD Business Services à Business Bay, Dubaï" loading="lazy"
-             onerror="this.closest('.office-photo').classList.add('noimg');this.remove()">
+      <div class="office-photo" id="officeShot">
+        <div class="office-slides">
+          <img src="img/bureau-1.jpg" alt="Les bureaux d'AGD Business Services à Business Bay, Dubaï" class="on" loading="lazy" onerror="this.remove()">
+          <img src="img/bureau-2.jpg" alt="L'espace d'accueil d'AGD Business Services" loading="lazy" onerror="this.remove()">
+          <img src="img/bureau-3.jpg" alt="La salle de réunion d'AGD Business Services" loading="lazy" onerror="this.remove()">
+        </div>
+        <div class="office-dots" id="officeDots"></div>
       </div>
       <div class="office-txt">
         <span class="office-tag" data-fr="Notre bureau" data-en="Our office">Notre bureau</span>
@@ -1186,7 +1191,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
   if(pp && !reduce){
     var leaf  = document.getElementById('ppLeaf');
     var stamp = document.getElementById('ppStamp');
-    var hint  = document.getElementById('ppHint');
+    var stage = pp.parentNode;
+    var stampBase = 1, stampShift = 0;
     var landed = false, ticking = false;
     function clamp(v){ return v < 0 ? 0 : v > 1 ? 1 : v; }
     function ease(t){ return 1 - Math.pow(1 - t, 3); }
@@ -1198,35 +1204,38 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
 
       // 0 → 0.42 : la couverture pivote vers la gauche
       var o = ease(clamp(p / 0.42));
+      var base = parseFloat(getComputedStyle(stage).getPropertyValue('--pps')) || 1;
       leaf.style.transform = 'rotateY(' + (-168 * o) + 'deg)';
-      // le livre glisse d'une demi-page vers la droite : la double page reste centrée,
-      // et rétrécit un peu pour tenir dans la largeur sur mobile
-      var k = 1 - 0.1 * o;
+      // le livre glisse d'une demi-page à droite pour rester centré une fois ouvert,
+      // et rétrécit légèrement pour ne jamais déborder
+      var k = base * (1 - 0.12 * o);
       pp.style.transform = 'scale(' + k + ') translateX(' + (136 * o) +
         'px) rotateY(-10deg) rotateX(7deg)';
+      // le tampon suit l'échelle du passeport et se cale sur la page de droite
+      stampBase = k;
+      stampShift = 136 * k * 0.52;
 
       // 0.42 → 0.62 : le tampon plonge et se pose, vite
       var t = clamp((p - 0.42) / 0.20);
       if(t <= 0){
         stamp.style.opacity = 0;
-        stamp.style.transform = 'translate3d(0,-190px,0) rotate(-30deg) scale(2.4)';
+        stamp.style.transform = 'translate3d(' + stampShift + 'px,-190px,0) rotate(-30deg) scale(' + (2.4 * stampBase) + ')';
         landed = false;
       } else if(t < 1){
         var e = 1 - Math.pow(1 - t, 4);
-        stamp.style.opacity = Math.min(t * 3, .92);
-        stamp.style.transform = 'translate3d(0,' + (-190 * (1 - e)) + 'px,0) rotate(' +
-          (-30 + 15 * e) + 'deg) scale(' + (2.4 - 1.4 * e) + ')';
+        stamp.style.opacity = Math.min(t * 3, .94);
+        stamp.style.transform = 'translate3d(' + stampShift + 'px,' + (-190 * (1 - e)) + 'px,0) rotate(' +
+          (-30 + 15 * e) + 'deg) scale(' + ((2.4 - 1.4 * e) * stampBase) + ')';
         landed = false;
       } else if(!landed){
         landed = true;
-        stamp.style.opacity = .9;
-        stamp.style.transform = 'translate3d(0,0,0) rotate(-15deg) scale(1)';
+        stamp.style.opacity = .92;
+        stamp.style.transform = 'translate3d(' + stampShift + 'px,0,0) rotate(-15deg) scale(' + stampBase + ')';
         stamp.animate(
-          [{transform:'translate3d(0,0,0) rotate(-15deg) scale(.92)'},
-           {transform:'translate3d(0,0,0) rotate(-15deg) scale(1)'}],
+          [{transform:'translate3d(' + stampShift + 'px,0,0) rotate(-15deg) scale(' + (stampBase*.9) + ')'},
+           {transform:'translate3d(' + stampShift + 'px,0,0) rotate(-15deg) scale(' + stampBase + ')'}],
           {duration:280, easing:'cubic-bezier(.3,1.6,.5,1)'});
       }
-      if(hint) hint.style.opacity = p > 0.05 ? 0 : 1;
     }
     window.addEventListener('scroll', function(){
       if(!ticking){ ticking = true; requestAnimationFrame(render); }
@@ -1337,6 +1346,42 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--muted);f
     }
     if(prevB){ prevB.onclick = function(){ nudge(-1); }; }
     if(nextB){ nextB.onclick = function(){ nudge(1); }; }
+  }
+
+  // --- Carrousel photos du bureau ---
+  var shot = document.getElementById('officeShot');
+  if(shot){
+    var slides = shot.querySelectorAll('.office-slides img');
+    var dotsBox = document.getElementById('officeDots');
+    if(!slides.length){
+      shot.classList.add('noimg');
+    } else if(slides.length > 1){
+      var si = 0, timer = null;
+      slides.forEach(function(_, i){
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Photo ' + (i + 1));
+        if(i === 0) b.className = 'on';
+        b.addEventListener('click', function(){ go(i); restart(); });
+        dotsBox.appendChild(b);
+      });
+      var dots = dotsBox.children;
+      function go(i){
+        slides[si].classList.remove('on'); dots[si].classList.remove('on');
+        si = (i + slides.length) % slides.length;
+        slides[si].classList.add('on'); dots[si].classList.add('on');
+      }
+      function restart(){
+        clearInterval(timer);
+        if(!reduce) timer = setInterval(function(){ go(si + 1); }, 4200);
+      }
+      restart();
+      shot.addEventListener('pointerenter', function(){ clearInterval(timer); });
+      shot.addEventListener('pointerleave', restart);
+    } else {
+      slides[0].classList.add('on');
+      dotsBox.remove();
+    }
   }
 
   // --- FAQ ---
